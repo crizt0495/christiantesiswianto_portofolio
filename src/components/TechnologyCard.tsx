@@ -12,7 +12,7 @@ const categories = [
 
 export function TechnologyCard() {
   return (
-    <section id="technologies" className="py-24 sm:py-32 bg-white/[0.02]">
+    <section id="technologies" className="py-24 sm:py-32 bg-zinc-100/50 dark:bg-white/[0.02]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Tech Stack"
@@ -29,7 +29,7 @@ export function TechnologyCard() {
               <div key={category.key}>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="w-8 h-px bg-gradient-to-r from-blue-500 to-transparent" />
-                  <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
                     {category.label}
                   </h3>
                 </div>
@@ -37,13 +37,15 @@ export function TechnologyCard() {
                   {items.map((tech) => (
                     <div
                       key={tech.name}
-                      className="group rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.06] hover:border-indigo-500/30 card-hover transition-all"
+                      className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm hover:shadow-md transition-all duration-300 dark:border-white/10 dark:bg-white/[0.03] dark:hover:bg-white/[0.06] dark:shadow-none"
                     >
-                      <h4 className="text-base font-semibold text-zinc-100 mb-1.5 flex items-center gap-2">
+                      <h4 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-1.5 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-violet-400 group-hover:scale-150 transition-transform" />
                         {tech.name}
                       </h4>
-                      <p className="text-sm text-zinc-400 leading-relaxed">{tech.description}</p>
+                      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        {tech.description}
+                      </p>
                     </div>
                   ))}
                 </div>

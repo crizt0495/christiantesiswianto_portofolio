@@ -64,7 +64,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-white/[0.02]">
+    <section id="contact" className="py-24 sm:py-32 bg-zinc-100/50 dark:bg-white/[0.02]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Contact"
@@ -74,7 +74,7 @@ export function Contact() {
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-5">
+            <h3 className="text-sm font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider mb-5">
               Get in Touch
             </h3>
             {contactOptions.map((option) => {
@@ -85,13 +85,15 @@ export function Contact() {
                   href={option.href}
                   target={option.label !== 'Email' ? '_blank' : undefined}
                   rel={option.label !== 'Email' ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-indigo-500/40 transition-all group"
+                  className="group flex items-center gap-4 p-4 rounded-xl border border-zinc-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-white/10 flex items-center justify-center text-indigo-300 group-hover:text-indigo-200 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-blue-500/20 dark:border-white/10 flex items-center justify-center text-indigo-600 dark:text-indigo-300 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-zinc-100">{option.label}</div>
+                    <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                      {option.label}
+                    </div>
                     <div className="text-xs text-zinc-500">{option.text}</div>
                   </div>
                 </a>
@@ -103,31 +105,37 @@ export function Contact() {
                 href={socials.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-indigo-500/40 transition-all group"
+                className="group flex items-center gap-4 p-4 rounded-xl border border-zinc-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-white/10 flex items-center justify-center text-indigo-300 group-hover:text-indigo-200 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-blue-500/20 dark:border-white/10 flex items-center justify-center text-indigo-600 dark:text-indigo-300 group-hover:scale-110 transition-transform duration-300">
                   <MessageSquare className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-zinc-100">WhatsApp</div>
+                  <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                    WhatsApp
+                  </div>
                   <div className="text-xs text-zinc-500">Chat on WhatsApp</div>
                 </div>
               </a>
             )}
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm">
-            <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-5">
+          <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none">
+            <h3 className="text-sm font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider mb-5">
               Send a Message
             </h3>
 
             {submitted ? (
               <div className="text-center py-10">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 border border-emerald-500/30 flex items-center justify-center mx-auto mb-5">
-                  <Send className="w-6 h-6 text-emerald-400" />
+                  <Send className="w-6 h-6 text-emerald-500 dark:text-emerald-400" />
                 </div>
-                <h4 className="text-base font-semibold text-zinc-100 mb-2">Message Received!</h4>
-                <p className="text-sm text-zinc-400">Thank you for reaching out. I will get back to you soon.</p>
+                <h4 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-2">
+                  Message Received!
+                </h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  Thank you for reaching out. I will get back to you soon.
+                </p>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -145,7 +153,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="block text-xs font-medium text-zinc-400 mb-1.5"
+                    className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1.5"
                   >
                     Name
                   </label>
@@ -154,18 +162,20 @@ export function Contact() {
                     type="text"
                     value={form.name}
                     onChange={(e) => handleChange('name', e.target.value)}
-                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-white/5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-shadow ${
-                      errors.name ? 'border-red-500/60' : 'border-white/10 focus:border-indigo-500/50'
+                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-zinc-100 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-shadow dark:bg-white/5 dark:text-zinc-100 dark:placeholder:text-zinc-600 ${
+                      errors.name
+                        ? 'border-red-500/60'
+                        : 'border-zinc-300 focus:border-indigo-500/50 dark:border-white/10 dark:focus:border-indigo-500/50'
                     }`}
                     placeholder="Your name"
                   />
-                  {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name}</p>}
+                  {errors.name && <p className="text-xs text-red-500 dark:text-red-400 mt-1">{errors.name}</p>}
                 </div>
 
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="block text-xs font-medium text-zinc-400 mb-1.5"
+                    className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1.5"
                   >
                     Email
                   </label>
@@ -174,18 +184,20 @@ export function Contact() {
                     type="email"
                     value={form.email}
                     onChange={(e) => handleChange('email', e.target.value)}
-                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-white/5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-shadow ${
-                      errors.email ? 'border-red-500/60' : 'border-white/10 focus:border-indigo-500/50'
+                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-zinc-100 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-shadow dark:bg-white/5 dark:text-zinc-100 dark:placeholder:text-zinc-600 ${
+                      errors.email
+                        ? 'border-red-500/60'
+                        : 'border-zinc-300 focus:border-indigo-500/50 dark:border-white/10 dark:focus:border-indigo-500/50'
                     }`}
                     placeholder="your@email.com"
                   />
-                  {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
+                  {errors.email && <p className="text-xs text-red-500 dark:text-red-400 mt-1">{errors.email}</p>}
                 </div>
 
                 <div>
                   <label
                     htmlFor="contact-message"
-                    className="block text-xs font-medium text-zinc-400 mb-1.5"
+                    className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1.5"
                   >
                     Message
                   </label>
@@ -194,13 +206,15 @@ export function Contact() {
                     value={form.message}
                     onChange={(e) => handleChange('message', e.target.value)}
                     rows={4}
-                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-white/5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-shadow resize-none ${
-                      errors.message ? 'border-red-500/60' : 'border-white/10 focus:border-indigo-500/50'
+                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-zinc-100 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-shadow resize-none dark:bg-white/5 dark:text-zinc-100 dark:placeholder:text-zinc-600 ${
+                      errors.message
+                        ? 'border-red-500/60'
+                        : 'border-zinc-300 focus:border-indigo-500/50 dark:border-white/10 dark:focus:border-indigo-500/50'
                     }`}
                     placeholder="Tell me about your project..."
                   />
                   {errors.message && (
-                    <p className="text-xs text-red-400 mt-1">{errors.message}</p>
+                    <p className="text-xs text-red-500 dark:text-red-400 mt-1">{errors.message}</p>
                   )}
                 </div>
 

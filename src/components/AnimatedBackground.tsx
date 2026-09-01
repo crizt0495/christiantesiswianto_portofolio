@@ -13,6 +13,10 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -21,6 +25,12 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
 
     let animationId: number;
     let gridOffset = 0;
+    let isDark = document.documentElement.classList.contains('dark');
+
+    const observer = new MutationObserver(() => {
+      isDark = document.documentElement.classList.contains('dark');
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -33,9 +43,12 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
 
       const gridSize = 60;
       const lineWidth = 1;
-      const opacity = 0.03;
 
-      ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+      if (isDark) {
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+      } else {
+        ctx.strokeStyle = 'rgba(9, 9, 11, 0.06)';
+      }
       ctx.lineWidth = lineWidth;
 
       const offsetY = gridOffset % gridSize;
@@ -62,9 +75,16 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
       const radius = Math.min(canvas.width, canvas.height) * 0.4;
 
       const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
-      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.08)');
-      gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.03)');
-      gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+
+      if (isDark) {
+        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.08)');
+        gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.03)');
+        gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
+      } else {
+        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.05)');
+        gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.02)');
+        gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
+      }
 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -85,8 +105,9 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', resize);
+      observer.disconnect();
     };
-  }, []);
+  }, [mounted]);
 
   if (!mounted) return null;
 

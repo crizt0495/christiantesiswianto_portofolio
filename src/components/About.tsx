@@ -24,19 +24,19 @@ export function About() {
         />
 
         <div className="grid lg:grid-cols-5 gap-8 items-start">
-          <div className="lg:col-span-3 rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10 backdrop-blur-sm">
-            <p className="text-zinc-300 leading-relaxed text-base mb-6">
+          <div className="lg:col-span-3 rounded-2xl border border-zinc-200 bg-white p-8 sm:p-10 dark:border-white/10 dark:bg-white/[0.03] shadow-sm dark:shadow-none">
+            <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-base mb-6">
               {personal.description}
             </p>
-            <p className="text-zinc-400 leading-relaxed text-sm">
-              I specialize in building robust backend systems with <span className="text-indigo-300 font-medium">Golang</span> and creating modern, responsive web applications with{' '}
-              <span className="text-indigo-300 font-medium">Next.js</span> and{' '}
-              <span className="text-indigo-300 font-medium">TypeScript</span>. My experience spans
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+              I specialize in building robust backend systems with <span className="text-indigo-600 dark:text-indigo-300 font-medium">Golang</span> and creating modern, responsive web applications with{' '}
+              <span className="text-indigo-600 dark:text-indigo-300 font-medium">Next.js</span> and{' '}
+              <span className="text-indigo-600 dark:text-indigo-300 font-medium">TypeScript</span>. My experience spans
               designing efficient database architectures, developing secure REST APIs, and deploying
               production-ready systems that handle real business operations.
             </p>
 
-            <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/5">
+            <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-zinc-200 dark:border-white/5">
               <div>
                 <div className="text-2xl font-bold text-gradient mb-1">2+</div>
                 <div className="text-xs text-zinc-500">Years Building</div>
@@ -58,14 +58,14 @@ export function About() {
               return (
                 <div
                   key={item.label}
-                  className="group rounded-xl border border-white/10 bg-white/[0.02] p-4 hover:bg-white/[0.05] hover:border-indigo-500/30 transition-all duration-300 cursor-default"
+                  className="group rounded-xl border border-zinc-200 bg-zinc-50 p-4 hover:bg-zinc-100 hover:border-indigo-500/30 transition-all duration-300 cursor-default dark:border-white/10 dark:bg-white/[0.02] dark:hover:bg-white/[0.05]"
                 >
                   <div
                     className={`w-9 h-9 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center mb-3 shadow-lg`}
                   >
                     <Icon className="w-4 h-4 text-white" />
                   </div>
-                  <div className="text-xs font-medium text-zinc-200 leading-snug">
+                  <div className="text-xs font-medium text-zinc-800 dark:text-zinc-200 leading-snug">
                     {item.label}
                   </div>
                 </div>

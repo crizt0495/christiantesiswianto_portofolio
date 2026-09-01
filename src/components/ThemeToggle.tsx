@@ -14,9 +14,7 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return (
-      <div className="w-9 h-9 rounded-lg border border-zinc-800 bg-zinc-900/50" aria-hidden="true" />
-    );
+    return <div className="w-9 h-9 rounded-lg border border-zinc-200 bg-zinc-100" aria-hidden="true" />;
   }
 
   const cycleTheme = () => {
@@ -26,17 +24,18 @@ export function ThemeToggle() {
   };
 
   const Icon = theme === 'system' ? Monitor : resolvedTheme === 'dark' ? Moon : Sun;
-  const label = theme === 'system' ? 'System theme' : theme === 'dark' ? 'Dark theme' : 'Light theme';
+  const label =
+    theme === 'system' ? 'System theme' : theme === 'dark' ? 'Dark theme' : 'Light theme';
 
   return (
     <button
       onClick={cycleTheme}
       className={cn(
-        'w-9 h-9 rounded-lg border border-zinc-800 bg-zinc-900/50',
+        'w-9 h-9 rounded-lg border transition-all duration-200',
         'flex items-center justify-center',
-        'text-zinc-400 hover:text-zinc-100 hover:border-zinc-700',
-        'transition-colors duration-200',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50'
+        'border-zinc-200 bg-zinc-100 text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200',
+        'dark:border-white/10 dark:bg-white/5 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-white/10',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50'
       )}
       aria-label={`Current: ${label}. Click to change theme.`}
       title={label}

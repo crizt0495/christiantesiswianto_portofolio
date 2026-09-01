@@ -62,7 +62,7 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled
-            ? 'bg-zinc-950/75 backdrop-blur-xl border-b border-white/5'
+            ? 'bg-white/80 dark:bg-zinc-950/75 backdrop-blur-xl border-b border-zinc-200/70 dark:border-white/5'
             : 'bg-transparent'
         )}
       >
@@ -79,7 +79,7 @@ export function Navbar() {
               <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/40 transition-shadow">
                 <Code2 className="w-4 h-4 text-white" />
               </span>
-              <span className="text-base font-semibold text-zinc-100 group-hover:text-white transition-colors">
+              <span className="text-base font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 dark:group-hover:text-white transition-colors">
                 Christian Tesiswianto
               </span>
             </a>
@@ -97,7 +97,9 @@ export function Navbar() {
                     }}
                     className={cn(
                       'relative text-sm py-1.5 transition-colors',
-                      isActive ? 'text-white' : 'text-zinc-400 hover:text-zinc-100'
+                      isActive
+                        ? 'text-zinc-900 dark:text-white'
+                        : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'
                     )}
                   >
                     {link.label}
@@ -118,10 +120,9 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  'w-9 h-9 rounded-lg border border-white/10 bg-white/5',
-                  'flex items-center justify-center',
-                  'text-zinc-400 hover:text-white hover:border-indigo-400/40',
-                  'transition-all duration-200'
+                  'w-9 h-9 rounded-lg border flex items-center justify-center transition-all duration-200',
+                  'border-zinc-200 bg-zinc-100 text-zinc-600 hover:text-zinc-900 hover:border-indigo-500/50',
+                  'dark:border-white/10 dark:bg-white/5 dark:text-zinc-400 dark:hover:text-white dark:hover:border-indigo-400/40'
                 )}
                 aria-label="GitHub Profile"
               >
@@ -132,10 +133,9 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  'w-9 h-9 rounded-lg border border-white/10 bg-white/5',
-                  'flex items-center justify-center',
-                  'text-zinc-400 hover:text-white hover:border-indigo-400/40',
-                  'transition-all duration-200'
+                  'w-9 h-9 rounded-lg border flex items-center justify-center transition-all duration-200',
+                  'border-zinc-200 bg-zinc-100 text-zinc-600 hover:text-zinc-900 hover:border-indigo-500/50',
+                  'dark:border-white/10 dark:bg-white/5 dark:text-zinc-400 dark:hover:text-white dark:hover:border-indigo-400/40'
                 )}
                 aria-label="LinkedIn Profile"
               >
@@ -147,10 +147,9 @@ export function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={cn(
-                'md:hidden w-10 h-10 rounded-lg border border-white/10 bg-white/5',
-                'flex items-center justify-center',
-                'text-zinc-400 hover:text-white',
-                'transition-colors duration-200'
+                'md:hidden w-10 h-10 rounded-lg border flex items-center justify-center transition-colors duration-200',
+                'border-zinc-200 bg-zinc-100 text-zinc-600 hover:text-zinc-900',
+                'dark:border-white/10 dark:bg-white/5 dark:text-zinc-400 dark:hover:text-white'
               )}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
@@ -163,8 +162,8 @@ export function Navbar() {
 
       <div
         className={cn(
-          'fixed inset-0 z-40 bg-zinc-950/95 backdrop-blur-xl md:hidden',
-          'transition-all duration-300',
+          'fixed inset-0 z-40 backdrop-blur-xl md:hidden transition-all duration-300',
+          'bg-white/95 dark:bg-zinc-950/95',
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         )}
       >
@@ -182,7 +181,7 @@ export function Navbar() {
                 }}
                 className={cn(
                   'text-2xl transition-colors',
-                  isActive ? 'text-white text-gradient' : 'text-zinc-400 hover:text-white'
+                  isActive ? 'font-semibold text-zinc-900 dark:text-white text-gradient' : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white'
                 )}
               >
                 {link.label}
@@ -195,10 +194,9 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'w-11 h-11 rounded-lg border border-white/10 bg-white/5',
-                'flex items-center justify-center',
-                'text-zinc-400 hover:text-white',
-                'transition-colors duration-200'
+                'w-11 h-11 rounded-lg border flex items-center justify-center transition-colors duration-200',
+                'border-zinc-200 bg-zinc-100 text-zinc-600 hover:text-zinc-900',
+                'dark:border-white/10 dark:bg-white/5 dark:text-zinc-400 dark:hover:text-white'
               )}
               aria-label="GitHub Profile"
             >
@@ -209,10 +207,9 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'w-11 h-11 rounded-lg border border-white/10 bg-white/5',
-                'flex items-center justify-center',
-                'text-zinc-400 hover:text-white',
-                'transition-colors duration-200'
+                'w-11 h-11 rounded-lg border flex items-center justify-center transition-colors duration-200',
+                'border-zinc-200 bg-zinc-100 text-zinc-600 hover:text-zinc-900',
+                'dark:border-white/10 dark:bg-white/5 dark:text-zinc-400 dark:hover:text-white'
               )}
               aria-label="LinkedIn Profile"
             >
