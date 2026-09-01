@@ -153,62 +153,6 @@ export const skills: Skill[] = [
 
 export const projects: Project[] = [
   {
-    id: 'digital-archive',
-    name: 'Digital Archive Management System',
-    shortDescription: 'A modern information system designed to manage, organize, and retrieve digital records efficiently.',
-    overview:
-      'A comprehensive digital archive management system built to handle large volumes of digital records with efficient indexing, search, and retrieval capabilities.',
-    problem:
-      'Organizations face challenges in managing growing volumes of digital records, making it difficult to organize, search, and retrieve documents efficiently.',
-    solution:
-      'Built a modern web-based system with robust backend architecture that enables efficient document management, advanced search functionality, and secure access control.',
-    keyFeatures: [
-      'Advanced document indexing and search',
-      'Secure user authentication and access control',
-      'Document upload, categorization, and tagging',
-      'Full-text search capabilities',
-      'Audit trail and activity logging',
-      'Export and reporting features',
-    ],
-    challenges:
-      'Designing a scalable system that can handle large file uploads while maintaining fast search performance and ensuring data security.',
-    results:
-      'Delivered a reliable system that significantly improved document retrieval time and reduced manual workload for archive management teams.',
-    technologies: ['Golang', 'Next.js', 'PostgreSQL'],
-    github: 'https://github.com/christiantesiswianto/digital-archive',
-    liveDemo: 'https://archive-demo.example.com',
-    featured: true,
-    image: '/projects/archive.jpg',
-  },
-  {
-    id: 'business-management',
-    name: 'Business Management System',
-    shortDescription:
-      'Web-based business application focused on operational management, transactions, reporting, and data management.',
-    overview:
-      'A comprehensive business management system designed to streamline operational workflows, manage transactions, and provide real-time business insights.',
-    problem:
-      'Small to medium businesses struggle with disconnected systems for managing inventory, transactions, and reporting, leading to inefficiencies and data inconsistencies.',
-    solution:
-      'Developed an integrated web application that consolidates business operations into a single platform with real-time data synchronization and comprehensive reporting.',
-    keyFeatures: [
-      'Inventory management with real-time tracking',
-      'Transaction processing and recording',
-      'Comprehensive reporting and analytics',
-      'Customer and supplier management',
-      'Financial overview and tracking',
-      'Role-based access control',
-    ],
-    challenges:
-      'Creating a unified system that is both powerful enough for complex business logic while remaining intuitive and easy to use for non-technical staff.',
-    results:
-      'Implemented a system that improved operational efficiency and provided business owners with clear visibility into their operations.',
-    technologies: ['Golang', 'Next.js', 'MySQL'],
-    github: 'https://github.com/christiantesiswianto/business-management',
-    featured: true,
-    image: '/projects/business.jpg',
-  },
-  {
     id: 'kasir-pos',
     name: 'POS Kasir',
     shortDescription: 'A complete, production-ready Point of Sale application with cashier workflow, inventory management, and real-time reporting.',
