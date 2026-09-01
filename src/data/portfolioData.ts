@@ -182,7 +182,7 @@ export const projects: Project[] = [
     technologies: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'Supabase PostgreSQL', 'Zustand', 'Zod', 'Recharts'],
     github: 'https://github.com/crizt0495/kasir_pos',
     featured: true,
-    image: '/projects/kasir.jpg',
+    image: '/projects/kasir.png',
   },
   {
     id: 'simarc',

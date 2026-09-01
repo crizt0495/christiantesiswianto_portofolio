@@ -24,11 +24,19 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
       <div className="relative aspect-video overflow-hidden border-b border-zinc-200 dark:border-white/5">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-600/10 to-violet-600/20 bg-glow-orb" />
         <div className="absolute inset-0 bg-dot-grid opacity-40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-6xl font-bold text-zinc-900/10 group-hover:text-zinc-900/15 group-hover:scale-110 transition-all duration-500 dark:text-white/10 dark:group-hover:text-white/20">
-            {project.name.charAt(0)}
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-6xl font-bold text-zinc-900/10 group-hover:text-zinc-900/15 group-hover:scale-110 transition-all duration-500 dark:text-white/10 dark:group-hover:text-white/20">
+              {project.name.charAt(0)}
+            </div>
           </div>
-        </div>
+        )}
         <div className="absolute top-4 left-4">
           <Badge>
             <Sparkles className="w-3 h-3 mr-1" />
@@ -128,9 +136,17 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         <div className="p-6 sm:p-8">
           <div className="relative aspect-video rounded-xl bg-gradient-to-br from-blue-600/20 via-indigo-600/10 to-violet-600/20 bg-glow-orb border border-zinc-200 overflow-hidden flex items-center justify-center mb-6 dark:border-white/10">
             <div className="absolute inset-0 bg-dot-grid opacity-40" />
-            <div className="relative text-6xl font-bold text-zinc-900/15 dark:text-white/15">
-              {project.name.charAt(0)}
-            </div>
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={`${project.name} screenshot`}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : (
+              <div className="relative text-6xl font-bold text-zinc-900/15 dark:text-white/15">
+                {project.name.charAt(0)}
+              </div>
+            )}
           </div>
 
           <h2
