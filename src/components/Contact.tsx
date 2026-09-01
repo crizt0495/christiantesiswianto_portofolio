@@ -64,16 +64,19 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-zinc-900/20">
+    <section id="contact" className="py-24 sm:py-32 bg-white/[0.02]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          eyebrow="Contact"
           title="Let's Build Something Great"
           subtitle="Have an idea, project, or business problem that needs a digital solution? Let's talk."
         />
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <h3 className="text-base font-semibold text-zinc-100 mb-4">Get in Touch</h3>
+            <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-5">
+              Get in Touch
+            </h3>
             {contactOptions.map((option) => {
               const Icon = option.icon;
               return (
@@ -82,9 +85,9 @@ export function Contact() {
                   href={option.href}
                   target={option.label !== 'Email' ? '_blank' : undefined}
                   rel={option.label !== 'Email' ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-3 p-4 rounded-xl border border-zinc-800/50 bg-zinc-900/30 hover:border-zinc-700/50 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-indigo-500/40 transition-all group"
                 >
-                  <div className="w-10 h-10 rounded-lg border border-zinc-800 bg-zinc-800/50 flex items-center justify-center text-zinc-400 group-hover:text-zinc-100 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-white/10 flex items-center justify-center text-indigo-300 group-hover:text-indigo-200 transition-colors">
                     <Icon className="w-4 h-4" />
                   </div>
                   <div>
@@ -100,9 +103,9 @@ export function Contact() {
                 href={socials.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-xl border border-zinc-800/50 bg-zinc-900/30 hover:border-zinc-700/50 transition-colors group"
+                className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-indigo-500/40 transition-all group"
               >
-                <div className="w-10 h-10 rounded-lg border border-zinc-800 bg-zinc-800/50 flex items-center justify-center text-zinc-400 group-hover:text-zinc-100 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-white/10 flex items-center justify-center text-indigo-300 group-hover:text-indigo-200 transition-colors">
                   <MessageSquare className="w-4 h-4" />
                 </div>
                 <div>
@@ -113,15 +116,17 @@ export function Contact() {
             )}
           </div>
 
-          <div className="rounded-xl border border-zinc-800/50 bg-zinc-900/30 p-6">
-            <h3 className="text-base font-semibold text-zinc-100 mb-4">Send a Message</h3>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm">
+            <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-5">
+              Send a Message
+            </h3>
 
             {submitted ? (
-              <div className="text-center py-8">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
-                  <Send className="w-5 h-5 text-emerald-400" />
+              <div className="text-center py-10">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 border border-emerald-500/30 flex items-center justify-center mx-auto mb-5">
+                  <Send className="w-6 h-6 text-emerald-400" />
                 </div>
-                <h4 className="text-sm font-semibold text-zinc-100 mb-2">Message Received</h4>
+                <h4 className="text-base font-semibold text-zinc-100 mb-2">Message Received!</h4>
                 <p className="text-sm text-zinc-400">Thank you for reaching out. I will get back to you soon.</p>
                 <Button
                   variant="ghost"
@@ -130,7 +135,7 @@ export function Contact() {
                     setSubmitted(false);
                     setForm({ name: '', email: '', message: '' });
                   }}
-                  className="mt-4"
+                  className="mt-5"
                 >
                   Send Another Message
                 </Button>
@@ -149,8 +154,8 @@ export function Contact() {
                     type="text"
                     value={form.name}
                     onChange={(e) => handleChange('name', e.target.value)}
-                    className={`w-full px-3 py-2 rounded-lg border bg-zinc-800/30 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-blue-500/50 ${
-                      errors.name ? 'border-red-500/50' : 'border-zinc-800'
+                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-white/5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-shadow ${
+                      errors.name ? 'border-red-500/60' : 'border-white/10 focus:border-indigo-500/50'
                     }`}
                     placeholder="Your name"
                   />
@@ -169,8 +174,8 @@ export function Contact() {
                     type="email"
                     value={form.email}
                     onChange={(e) => handleChange('email', e.target.value)}
-                    className={`w-full px-3 py-2 rounded-lg border bg-zinc-800/30 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-blue-500/50 ${
-                      errors.email ? 'border-red-500/50' : 'border-zinc-800'
+                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-white/5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-shadow ${
+                      errors.email ? 'border-red-500/60' : 'border-white/10 focus:border-indigo-500/50'
                     }`}
                     placeholder="your@email.com"
                   />
@@ -189,8 +194,8 @@ export function Contact() {
                     value={form.message}
                     onChange={(e) => handleChange('message', e.target.value)}
                     rows={4}
-                    className={`w-full px-3 py-2 rounded-lg border bg-zinc-800/30 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-blue-500/50 resize-none ${
-                      errors.message ? 'border-red-500/50' : 'border-zinc-800'
+                    className={`w-full px-3.5 py-2.5 rounded-xl border bg-white/5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-shadow resize-none ${
+                      errors.message ? 'border-red-500/60' : 'border-white/10 focus:border-indigo-500/50'
                     }`}
                     placeholder="Tell me about your project..."
                   />

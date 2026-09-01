@@ -5,11 +5,11 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-zinc-800/50 bg-zinc-950 py-12">
+    <footer className="border-t border-white/5 bg-zinc-950 py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
           <h2 className="text-sm font-semibold text-zinc-100">{personal.name}</h2>
-          <p className="text-xs text-zinc-500 mt-1">{personal.title}</p>
+          <p className="text-xs text-zinc-500 mt-0.5">{personal.title}</p>
         </div>
 
         <nav className="flex flex-wrap items-center justify-center gap-6">
@@ -30,7 +30,7 @@ export function Footer() {
               href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 hover:text-zinc-100 transition-colors"
+              className="text-zinc-500 hover:text-white transition-colors"
               aria-label="GitHub Profile"
             >
               <Github className="w-4 h-4" />
@@ -39,7 +39,7 @@ export function Footer() {
               href={socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 hover:text-zinc-100 transition-colors"
+              className="text-zinc-500 hover:text-white transition-colors"
               aria-label="LinkedIn Profile"
             >
               <Linkedin className="w-4 h-4" />

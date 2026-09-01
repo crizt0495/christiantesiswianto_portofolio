@@ -7,13 +7,13 @@ const categories = [
   { key: 'backend', label: 'Backend' },
   { key: 'frontend', label: 'Frontend' },
   { key: 'database', label: 'Database' },
-  { key: 'development', label: 'Development' },
+  { key: 'development', label: 'Dev Tools' },
 ] as const;
 
-const levelLabel = {
-  primary: { label: 'Primary', color: 'text-blue-400' },
-  strong: { label: 'Strong', color: 'text-zinc-300' },
-  working: { label: 'Working', color: 'text-zinc-500' },
+const levelConfig = {
+  primary: { label: 'Primary', color: 'bg-gradient-to-r from-blue-500 to-indigo-500', width: '100%' },
+  strong: { label: 'Strong', color: 'bg-gradient-to-r from-indigo-500 to-violet-500', width: '75%' },
+  working: { label: 'Working', color: 'bg-gradient-to-r from-zinc-500 to-zinc-600', width: '50%' },
 } as const;
 
 export function SkillCard() {
@@ -21,11 +21,12 @@ export function SkillCard() {
     <section id="skills" className="py-24 sm:py-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="Technical Skills"
-          subtitle="Skills and expertise I bring to every project."
+          eyebrow="My Skills"
+          title="Technical Expertise"
+          subtitle="Technologies and tools I use daily to build production systems."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {categories.map((category) => {
             const items = skills.filter((s) => s.category === category.key);
             if (items.length === 0) return null;
@@ -33,20 +34,31 @@ export function SkillCard() {
             return (
               <div
                 key={category.key}
-                className="rounded-xl border border-zinc-800/50 bg-zinc-900/30 p-6"
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:bg-white/[0.05] transition-colors duration-300"
               >
-                <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-5">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-6">
                   {category.label}
                 </h3>
-                <ul className="space-y-3">
-                  {items.map((skill) => (
-                    <li key={skill.name} className="flex items-center justify-between gap-3">
-                      <span className="text-sm text-zinc-300">{skill.name}</span>
-                      <span className={`text-xs font-medium ${levelLabel[skill.level].color}`}>
-                        {levelLabel[skill.level].label}
-                      </span>
-                    </li>
-                  ))}
+                <ul className="space-y-5">
+                  {items.map((skill) => {
+                    const cfg = levelConfig[skill.level];
+                    return (
+                      <li key={skill.name}>
+                        <div className="flex items-center justify-between gap-2 mb-1.5">
+                          <span className="text-sm text-zinc-200 font-medium">{skill.name}</span>
+                          <span className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider">
+                            {cfg.label}
+                          </span>
+                        </div>
+                        <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                          <div
+                            className={`h-full rounded-full ${cfg.color}`}
+                            style={{ width: cfg.width }}
+                          />
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             );

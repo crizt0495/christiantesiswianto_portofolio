@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { X, ExternalLink, Github, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { X, ExternalLink, Github, CheckCircle, ArrowUpRight, Sparkles } from 'lucide-react';
 import { Project } from '@/data/portfolioData';
 import { Badge } from './Badge';
 import { Button } from './Button';
@@ -11,22 +12,50 @@ interface ProjectCardProps {
   onViewDetails: (project: Project) => void;
 }
 
+const accentFor = (label: string): string => {
+  if (label.toLowerCase() === 'featured') return 'bg-indigo-500/15 text-indigo-300 border-indigo-400/30';
+  return 'bg-white/5 text-zinc-300 border-white/10';
+};
+
 export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
   return (
-    <article className="group rounded-xl border border-zinc-800/50 bg-zinc-900/30 overflow-hidden hover:border-zinc-700/50 transition-colors">
-      <div className="aspect-video bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 flex items-center justify-center border-b border-zinc-800/50">
-        <div className="text-5xl font-bold text-zinc-700/30 group-hover:text-zinc-600/30 transition-colors">
-          {project.name.charAt(0)}
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.55, ease: 'easeOut' }}
+      className="group relative rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden hover:bg-white/[0.05] hover:border-indigo-500/40 card-hover transition-all"
+    >
+      <div className="relative aspect-video overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-600/10 to-violet-600/20 bg-glow-orb" />
+        <div className="absolute inset-0 bg-dot-grid opacity-40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-6xl font-bold text-white/10 group-hover:text-white/20 group-hover:scale-110 transition-all duration-500">
+            {project.name.charAt(0)}
+          </div>
+        </div>
+        <div className="absolute top-4 left-4">
+          <Badge className={accentFor(project.featured ? 'featured' : '')}>
+            <Sparkles className="w-3 h-3 mr-1" />
+            {project.featured ? 'Featured' : 'Project'}
+          </Badge>
+        </div>
+        <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0 grid place-items-center w-9 h-9 rounded-lg bg-white/10 backdrop-blur border border-white/10">
+          <ArrowUpRight className="w-4 h-4 text-white" />
         </div>
       </div>
 
       <div className="p-6">
-        <h3 className="text-lg font-semibold text-zinc-100 mb-2">{project.name}</h3>
-        <p className="text-sm text-zinc-400 leading-relaxed mb-4 line-clamp-3">
+        <div className="flex items-center justify-between gap-3 mb-2">
+          <h3 className="text-lg font-semibold text-zinc-100 group-hover:text-white transition-colors">
+            {project.name}
+          </h3>
+        </div>
+        <p className="text-sm text-zinc-400 leading-relaxed mb-5 line-clamp-3">
           {project.shortDescription}
         </p>
 
-        <div className="flex flex-wrap gap-1.5 mb-5">
+        <div className="flex flex-wrap gap-1.5 mb-6">
           {project.technologies.map((tech) => (
             <Badge key={tech} variant="outline">
               {tech}
@@ -35,12 +64,9 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={() => onViewDetails(project)}
-          >
+          <Button variant="secondary" size="sm" onClick={() => onViewDetails(project)}>
             View Details
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </Button>
           {project.github && (
             <Button
@@ -66,7 +92,7 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -79,38 +105,42 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   if (!project) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-zinc-950/80 backdrop-blur-sm"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-zinc-950/85 backdrop-blur-md"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="project-modal-title"
     >
-      <div
-        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl border border-zinc-800 bg-zinc-950 shadow-2xl"
+      <motion.div
+        initial={{ opacity: 0, y: 24, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl shadow-indigo-950/40"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="sticky top-4 right-4 ml-auto w-9 h-9 rounded-lg border border-zinc-800 bg-zinc-900/80 backdrop-blur-sm flex items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-700 transition-colors z-10"
+          className="sticky top-4 right-4 ml-auto w-9 h-9 rounded-lg border border-white/10 bg-zinc-900/80 backdrop-blur-sm flex items-center justify-center text-zinc-400 hover:text-white hover:border-indigo-400/40 transition-colors z-10"
           aria-label="Close modal"
         >
           <X className="w-4 h-4" />
         </button>
 
         <div className="p-6 sm:p-8">
-          <div className="aspect-video rounded-lg bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 flex items-center justify-center border border-zinc-800/50 mb-6">
-            <div className="text-6xl font-bold text-zinc-700/30">{project.name.charAt(0)}</div>
+          <div className="relative aspect-video rounded-xl bg-gradient-to-br from-blue-600/20 via-indigo-600/10 to-violet-600/20 bg-glow-orb border border-white/10 overflow-hidden flex items-center justify-center mb-6">
+            <div className="absolute inset-0 bg-dot-grid opacity-40" />
+            <div className="relative text-6xl font-bold text-white/15">{project.name.charAt(0)}</div>
           </div>
 
-          <h2
-            id="project-modal-title"
-            className="text-2xl sm:text-3xl font-bold text-zinc-100 mb-3"
-          >
+          <h2 id="project-modal-title" className="text-2xl sm:text-3xl font-bold text-zinc-100 mb-3">
             {project.name}
           </h2>
 
-          <div className="flex flex-wrap gap-1.5 mb-6">
+          <div className="flex flex-wrap gap-1.5 mb-7">
             {project.technologies.map((tech) => (
               <Badge key={tech}>{tech}</Badge>
             ))}
@@ -118,34 +148,34 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           <div className="space-y-6">
             <section>
-              <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+              <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-2">
                 Overview
               </h3>
               <p className="text-sm text-zinc-300 leading-relaxed">{project.overview}</p>
             </section>
 
             <section>
-              <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+              <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-2">
                 Problem
               </h3>
               <p className="text-sm text-zinc-300 leading-relaxed">{project.problem}</p>
             </section>
 
             <section>
-              <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+              <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-2">
                 Solution
               </h3>
               <p className="text-sm text-zinc-300 leading-relaxed">{project.solution}</p>
             </section>
 
             <section>
-              <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+              <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-3">
                 Key Features
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {project.keyFeatures.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-zinc-300">
-                    <CheckCircle className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                  <li key={i} className="flex items-start gap-2.5 text-sm text-zinc-300">
+                    <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -153,21 +183,21 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </section>
 
             <section>
-              <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+              <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-2">
                 Challenges
               </h3>
               <p className="text-sm text-zinc-300 leading-relaxed">{project.challenges}</p>
             </section>
 
             <section>
-              <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+              <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-2">
                 Results
               </h3>
               <p className="text-sm text-zinc-300 leading-relaxed">{project.results}</p>
             </section>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 pt-6 mt-6 border-t border-zinc-800/50">
+          <div className="flex flex-wrap items-center gap-2 pt-6 mt-6 border-t border-white/5">
             {project.github && (
               <Button
                 variant="secondary"
@@ -192,8 +222,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             )}
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

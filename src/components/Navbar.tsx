@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Menu, X, Code2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { cn, scrollToSection } from '@/lib/utils';
 import { navLinks, socials } from '@/data/portfolioData';
@@ -9,6 +9,7 @@ import { ThemeToggle } from './ThemeToggle';
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,26 @@ export function Navbar() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.getElementById(link.href.slice(1)))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px' }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -41,7 +62,7 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled
-            ? 'bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/50'
+            ? 'bg-zinc-950/75 backdrop-blur-xl border-b border-white/5'
             : 'bg-transparent'
         )}
       >
@@ -53,25 +74,42 @@ export function Navbar() {
                 e.preventDefault();
                 handleNavClick('#home');
               }}
-              className="text-base font-semibold text-zinc-100 hover:text-white transition-colors"
+              className="flex items-center gap-2.5 group"
             >
-              Christian Tesiswianto
+              <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/40 transition-shadow">
+                <Code2 className="w-4 h-4 text-white" />
+              </span>
+              <span className="text-base font-semibold text-zinc-100 group-hover:text-white transition-colors">
+                Christian Tesiswianto
+              </span>
             </a>
 
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
-                  className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.slice(1);
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }}
+                    className={cn(
+                      'relative text-sm py-1.5 transition-colors',
+                      isActive ? 'text-white' : 'text-zinc-400 hover:text-zinc-100'
+                    )}
+                  >
+                    {link.label}
+                    <span
+                      className={cn(
+                        'absolute left-0 -bottom-0.5 h-px w-full bg-gradient-to-r from-blue-500 to-violet-500 transition-opacity duration-300',
+                        isActive ? 'opacity-100' : 'opacity-0'
+                      )}
+                    />
+                  </a>
+                );
+              })}
             </div>
 
             <div className="hidden md:flex items-center gap-3">
@@ -80,10 +118,10 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  'w-9 h-9 rounded-lg border border-zinc-800 bg-zinc-900/50',
+                  'w-9 h-9 rounded-lg border border-white/10 bg-white/5',
                   'flex items-center justify-center',
-                  'text-zinc-400 hover:text-zinc-100 hover:border-zinc-700',
-                  'transition-colors duration-200'
+                  'text-zinc-400 hover:text-white hover:border-indigo-400/40',
+                  'transition-all duration-200'
                 )}
                 aria-label="GitHub Profile"
               >
@@ -94,10 +132,10 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  'w-9 h-9 rounded-lg border border-zinc-800 bg-zinc-900/50',
+                  'w-9 h-9 rounded-lg border border-white/10 bg-white/5',
                   'flex items-center justify-center',
-                  'text-zinc-400 hover:text-zinc-100 hover:border-zinc-700',
-                  'transition-colors duration-200'
+                  'text-zinc-400 hover:text-white hover:border-indigo-400/40',
+                  'transition-all duration-200'
                 )}
                 aria-label="LinkedIn Profile"
               >
@@ -109,9 +147,9 @@ export function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={cn(
-                'md:hidden w-10 h-10 rounded-lg border border-zinc-800 bg-zinc-900/50',
+                'md:hidden w-10 h-10 rounded-lg border border-white/10 bg-white/5',
                 'flex items-center justify-center',
-                'text-zinc-400 hover:text-zinc-100',
+                'text-zinc-400 hover:text-white',
                 'transition-colors duration-200'
               )}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -130,29 +168,36 @@ export function Navbar() {
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         )}
       >
-        <nav className="flex flex-col items-center justify-center h-full gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.href);
-              }}
-              className="text-2xl text-zinc-300 hover:text-white transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="absolute inset-0 bg-glow-orb opacity-60" aria-hidden="true" />
+        <nav className="relative flex flex-col items-center justify-center h-full gap-7">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.slice(1);
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
+                className={cn(
+                  'text-2xl transition-colors',
+                  isActive ? 'text-white text-gradient' : 'text-zinc-400 hover:text-white'
+                )}
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <div className="flex items-center gap-3 mt-8">
             <a
               href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'w-11 h-11 rounded-lg border border-zinc-800 bg-zinc-900/50',
+                'w-11 h-11 rounded-lg border border-white/10 bg-white/5',
                 'flex items-center justify-center',
-                'text-zinc-400 hover:text-zinc-100',
+                'text-zinc-400 hover:text-white',
                 'transition-colors duration-200'
               )}
               aria-label="GitHub Profile"
@@ -164,9 +209,9 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'w-11 h-11 rounded-lg border border-zinc-800 bg-zinc-900/50',
+                'w-11 h-11 rounded-lg border border-white/10 bg-white/5',
                 'flex items-center justify-center',
-                'text-zinc-400 hover:text-zinc-100',
+                'text-zinc-400 hover:text-white',
                 'transition-colors duration-200'
               )}
               aria-label="LinkedIn Profile"
