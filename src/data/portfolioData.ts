@@ -208,6 +208,70 @@ export const projects: Project[] = [
     featured: true,
     image: '/projects/business.jpg',
   },
+  {
+    id: 'kasir-pos',
+    name: 'POS Kasir',
+    shortDescription: 'A complete, production-ready Point of Sale application with cashier workflow, inventory management, and real-time reporting.',
+    overview:
+      'A full-stack POS application designed for real business operations, featuring cashier workflow, barcode scanning, dynamic RBAC, profit tracking, customer profit sharing, and PWA support with push notifications.',
+    problem:
+      'Small to medium businesses need a reliable, secure, and efficient point-of-sale system that handles inventory, transactions, and reporting without relying on disconnected or expensive proprietary solutions.',
+    solution:
+      'Built a complete POS application with atomic database transactions, dynamic role-based access control, real-time profit tracking, and push notifications — all deployable as a PWA on mobile devices.',
+    keyFeatures: [
+      'Full POS cashier workflow with barcode scanning (USB & manual)',
+      'Hold/resume transactions and multi-method checkout',
+      'Dynamic RBAC permission system stored in the database',
+      'Price snapshots at transaction time for accurate profit history',
+      'Customer profit sharing (bagi hasil) calculations',
+      'PWA with web push notifications and Telegram bot fallback',
+      'Automatic inventory tracking and stock movements',
+      'Cash management with session reconciliation',
+      'Comprehensive reporting with CSV export',
+      'Full audit trail for all actions',
+      'Keyboard shortcuts for fast operation',
+    ],
+    challenges:
+      'Ensuring atomic database transactions under concurrent sales, designing a flexible RBAC system that works on both frontend and backend, and handling edge cases like refunds, discounts, and cash discrepancies.',
+    results:
+      'Delivered a production-ready POS system that handles concurrent transactions safely, provides real-time business insights, and can be installed as a native-like app on mobile devices.',
+    technologies: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'Supabase PostgreSQL', 'Zustand', 'Zod', 'Recharts'],
+    github: 'https://github.com/crizt0495/kasir_pos',
+    featured: true,
+    image: '/projects/kasir.jpg',
+  },
+  {
+    id: 'simarc',
+    name: 'SIMARC',
+    shortDescription: 'Sistem Informasi Manajemen Arsip Record Center — a comprehensive archive management system with blockchain-based audit trail.',
+    overview:
+      'A web-based archive management information system for institutional record centers, supporting file transfers, destruction scheduling, lending tracking, and tamper-proof audit logs via blockchain integration.',
+    problem:
+      'Government and institutional record centers manage large volumes of physical and digital archives with manual, error-prone processes that lack transparency, accountability, and long-term retention control.',
+    solution:
+      'Developed a full-featured archive management system with automated destruction schedules, lending workflows, PDF report generation, and a blockchain-based audit trail to ensure tamper-proof accountability.',
+    keyFeatures: [
+      'Full archive lifecycle management (CRUD, filing, transfer, destruction)',
+      'Archive lending with tracking and return workflows',
+      'Blockchain-based audit trail for tamper-proof change records',
+      'Automated destruction scheduling based on retention periods',
+      'QR code generation for physical archive identification',
+      'PDF report generation (Berita Acara) for official documentation',
+      'Excel export for reporting',
+      'Database backup with optional Google Drive OAuth integration',
+      'Dynamic database switching from the web UI',
+      'Recovery mode with graceful degradation',
+      'PWA support for mobile access',
+    ],
+    challenges:
+      'Building a Go application that handles file uploads, OCR, PDF generation, and blockchain integration while remaining deployable on serverless platforms like Vercel with embedded templates and static assets.',
+    results:
+      'Delivered a production system used by Bakesbangpol Kota Probolinggo, replacing manual archive processes with a reliable, auditable, and scalable digital solution.',
+    technologies: ['Go', 'Gin', 'GORM', 'MySQL', 'HTML Templates', 'Tailwind CSS', 'PWA'],
+    github: 'https://github.com/crizt0495/simarc-go',
+    featured: true,
+    image: '/projects/simarc.jpg',
+  },
 ];
 
 export const experiences: Experience[] = [
