@@ -73,7 +73,7 @@ export const personal: Personal = {
   tagline: 'Building Reliable Digital Solutions with Go & Modern Web Technologies.',
   description:
     'Software developer focused on building practical, reliable, and scalable digital solutions. I work primarily with Golang for backend development and Next.js for modern web applications, supported by strong database experience with PostgreSQL and MySQL.',
-  email: 'christwnto@gmai.com',
+  email: 'christwnto@gmail.com',
   location: 'Indonesia',
   availability: 'Open to opportunities',
 };
