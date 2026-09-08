@@ -15,6 +15,7 @@ export function TechnologyCard() {
     <section id="technologies" className="py-24 sm:py-32 nb-section-alt">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          eyebrow="Tech Stack"
           title="Technologies I Work With"
           subtitle="A focused set of tools and technologies I use to build reliable software."
         />
@@ -36,9 +37,10 @@ export function TechnologyCard() {
                   {items.map((tech) => (
                     <div
                       key={tech.name}
-                      className="nb-card-flat p-5 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_var(--color-shadow)] dark:hover:shadow-[6px_6px_0_var(--color-dark-shadow)] transition-all duration-150"
+                      className="nb-card-flat p-5 border-t-4 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_var(--color-shadow)] dark:hover:shadow-[6px_6px_0_var(--color-dark-shadow)] transition-all duration-150 border-t-black dark:border-t-dark-text group"
                     >
-                      <h4 className="text-base font-bold text-text dark:text-dark-text mb-2 uppercase tracking-tight">
+                      <h4 className="text-base font-bold text-text dark:text-dark-text mb-2 uppercase tracking-tight flex items-center gap-2">
+                        <span className={`w-2.5 h-2.5 rounded-sm ${category.color} shrink-0 group-hover:scale-125 transition-transform`} />
                         {tech.name}
                       </h4>
                       <p className="text-sm text-text-secondary dark:text-dark-text-secondary leading-relaxed">

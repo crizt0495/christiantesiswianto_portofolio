@@ -67,6 +67,7 @@ export function Contact() {
     <section id="contact" className="py-24 sm:py-32 nb-section-alt">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          eyebrow="Contact"
           title="Let's Build Something Great"
           subtitle="Have an idea, project, or business problem that needs a digital solution? Let's talk."
         />

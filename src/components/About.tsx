@@ -1,15 +1,22 @@
 'use client';
 
 import { Code2, Database, Globe, Server, Layout, BarChart3 } from 'lucide-react';
+import { personal } from '@/data/portfolioData';
 import { SectionHeading } from './SectionHeading';
 
 const highlights = [
   { icon: Server, label: 'Backend Development', color: 'bg-accent' },
-  { icon: Globe, label: 'Full-Stack Web Development', color: 'bg-accent-vivid' },
-  { icon: Code2, label: 'REST API', color: 'bg-accent-green' },
+  { icon: Globe, label: 'Full-Stack Web', color: 'bg-accent-vivid' },
+  { icon: Code2, label: 'REST API Design', color: 'bg-accent-green' },
   { icon: Database, label: 'Database Architecture', color: 'bg-accent-yellow' },
   { icon: Layout, label: 'Business Applications', color: 'bg-accent-pink' },
-  { icon: BarChart3, label: 'Application Performance', color: 'bg-accent' },
+  { icon: BarChart3, label: 'Performance & Scale', color: 'bg-accent' },
+];
+
+const stats = [
+  { value: '2+', label: 'Years Building' },
+  { value: '10+', label: 'Production Systems' },
+  { value: '100%', label: 'Commitment to Quality' },
 ];
 
 export function About() {
@@ -17,30 +24,48 @@ export function About() {
     <section id="about" className="py-24 sm:py-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="About Me"
-          subtitle="A developer focused on building practical and reliable solutions."
+          eyebrow="About Me"
+          title="Building Reliable Software"
+          subtitle="A developer focused on building practical and reliable solutions that scale."
         />
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="nb-card p-8 sm:p-10">
-            <p className="text-text dark:text-dark-text leading-relaxed mb-8 text-lg">
-              Software developer focused on building practical, reliable, and scalable digital
-              solutions. I work primarily with Golang for backend development and Next.js for modern
-              web applications, supported by strong database experience with PostgreSQL and MySQL.
+            <p className="text-lg text-text dark:text-dark-text leading-relaxed mb-6">
+              {personal.description}
+            </p>
+            <p className="text-text-secondary dark:text-dark-text-secondary leading-relaxed text-base mb-8">
+              I specialize in building robust backend systems with{' '}
+              <span className="font-bold text-accent">Golang</span> and creating modern, responsive
+              web applications with <span className="font-bold text-accent">Next.js</span> and{' '}
+              <span className="font-bold text-accent-vivid">TypeScript</span>. My experience spans
+              designing efficient database architectures, developing secure REST APIs, and deploying
+              production-ready systems that handle real business operations.
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 mb-8 pt-6 border-t-3 border-border dark:border-dark-border">
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-2xl font-bold text-accent dark:text-accent">{stat.value}</div>
+                  <div className="text-xs font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted mt-1">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {highlights.map((item) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={item.label}
-                    className="flex items-center gap-3 text-sm font-medium text-text-secondary dark:text-dark-text-secondary"
+                    className="flex items-center gap-3 text-sm font-semibold text-text dark:text-dark-text p-3 rounded-lg border-2 border-border/40 dark:border-dark-border/40 bg-bg-alt/40 dark:bg-dark-bg-alt/40 hover:border-accent hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
                   >
-                    <div className={`w-8 h-8 rounded-md ${item.color} flex items-center justify-center shrink-0`}>
+                    <div className={`w-9 h-9 rounded-md ${item.color} flex items-center justify-center shrink-0 shadow-[2px_2px_0_var(--color-shadow)]`}>
                       <Icon className="w-4 h-4 text-white" />
                     </div>
-                    <span>{item.label}</span>
+                    <span className="leading-snug">{item.label}</span>
                   </div>
                 );
               })}

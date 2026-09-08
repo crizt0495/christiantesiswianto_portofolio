@@ -94,6 +94,30 @@ body.dark-mode {
   background: var(--color-accent);
 }
 
+/* Thin scrollbar utility */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.dark .scrollbar-thin {
+  scrollbar-color: var(--color-dark-border) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 6px;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-dark-border);
+}
+
 /* Neo Brutalism Base Styles */
 .nb-card {
   background: var(--color-bg-card);

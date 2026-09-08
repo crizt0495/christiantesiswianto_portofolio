@@ -11,8 +11,9 @@ export function Projects() {
     <section id="projects" className="py-24 sm:py-32 nb-section-alt">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          eyebrow="My Work"
           title="Featured Projects"
-          subtitle="Real applications built to solve real problems."
+          subtitle="Real production applications built to solve real business problems."
         />
 
         <ProjectGrid projects={featured} />

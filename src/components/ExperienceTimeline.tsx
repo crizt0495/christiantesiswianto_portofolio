@@ -9,6 +9,7 @@ export function ExperienceTimeline() {
     <section id="experience" className="py-24 sm:py-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          eyebrow="Journey"
           title="Experience & Journey"
           subtitle="My professional journey and continuous growth as a developer."
         />

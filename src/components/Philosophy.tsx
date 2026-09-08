@@ -10,11 +10,19 @@ const cardColors = [
   'border-t-accent-pink',
 ];
 
+const numberStyles = [
+  'bg-accent',
+  'bg-accent-vivid',
+  'bg-accent-green',
+  'bg-accent-pink',
+];
+
 export function Philosophy() {
   return (
     <section className="py-24 sm:py-32 nb-section-alt">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          eyebrow="Principles"
           title="How I Build Software"
           subtitle="Core principles that guide every project I take on."
         />
@@ -23,12 +31,14 @@ export function Philosophy() {
           {philosophies.map((item, index) => (
             <div
               key={item.number}
-              className={`nb-card p-6 border-t-4 ${cardColors[index % cardColors.length]} hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0_var(--color-shadow)] dark:hover:shadow-[8px_8px_0_var(--color-dark-shadow)] transition-all duration-150`}
+              className={`nb-card p-6 border-t-4 ${cardColors[index % cardColors.length]} hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0_var(--color-shadow)] dark:hover:shadow-[8px_8px_0_var(--color-dark-shadow)] transition-all duration-150 group`}
             >
-              <span className="text-3xl font-bold text-text dark:text-dark-text opacity-15">
+              <div
+                className={`w-11 h-11 rounded-lg ${numberStyles[index % numberStyles.length]} flex items-center justify-center text-white font-bold text-lg shadow-[2px_2px_0_var(--color-shadow)] group-hover:shadow-[3px_3px_0_var(--color-shadow)] transition-all`}
+              >
                 {item.number}
-              </span>
-              <h3 className="text-base font-bold text-text dark:text-dark-text mt-3 mb-2 uppercase tracking-tight">
+              </div>
+              <h3 className="text-base font-bold text-text dark:text-dark-text mt-4 mb-2 uppercase tracking-tight">
                 {item.title}
               </h3>
               <p className="text-sm text-text-secondary dark:text-dark-text-secondary leading-relaxed">
