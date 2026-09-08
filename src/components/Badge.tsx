@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'default' | 'outline';
+  variant?: 'default' | 'outline' | 'accent' | 'green' | 'yellow' | 'pink';
   className?: string;
 }
 
@@ -12,9 +12,13 @@ export function Badge({ children, variant = 'default', className }: BadgeProps) 
   return (
     <span
       className={cn(
-        'inline-flex items-center px-3 py-1 rounded-full text-xs font-medium',
-        variant === 'default' && 'bg-gradient-to-r from-indigo-500/15 to-violet-500/15 text-indigo-600 border-indigo-500/25 dark:from-indigo-500/15 dark:to-violet-500/15 dark:text-indigo-200 dark:border-indigo-400/25',
-        variant === 'outline' && 'bg-zinc-100 text-zinc-600 border-zinc-300 dark:bg-white/5 dark:text-zinc-300 dark:border-white/10',
+        'inline-flex items-center px-3 py-1 rounded-md text-xs font-semibold border-2 uppercase tracking-wide',
+        variant === 'default' && 'bg-white dark:bg-dark-bg-card border-border dark:border-dark-border text-text dark:text-dark-text',
+        variant === 'outline' && 'bg-transparent border-border dark:border-dark-border text-text dark:text-dark-text',
+        variant === 'accent' && 'bg-accent border-border dark:border-dark-border text-white',
+        variant === 'green' && 'bg-accent-green border-border dark:border-dark-border text-white',
+        variant === 'yellow' && 'bg-accent-yellow border-border dark:border-dark-border text-text dark:text-dark-text',
+        variant === 'pink' && 'bg-accent-pink border-border dark:border-dark-border text-white',
         className
       )}
     >

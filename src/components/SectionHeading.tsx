@@ -5,21 +5,21 @@ import { cn } from '@/lib/utils';
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
-  eyebrow?: string;
   className?: string;
 }
 
-export function SectionHeading({ title, subtitle, eyebrow, className }: SectionHeadingProps) {
+export function SectionHeading({ title, subtitle, className }: SectionHeadingProps) {
   return (
     <div className={cn('text-center mb-16', className)}>
-      {eyebrow && (
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-400 mb-4">
-          {eyebrow}
-        </span>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text dark:text-dark-text mb-4 uppercase tracking-tight">
+        {title}
+      </h2>
+      {subtitle && (
+        <p className="text-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
+          {subtitle}
+        </p>
       )}
-      <div className="w-14 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500 rounded-full mx-auto" />
-      <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mt-5 dark:text-zinc-100">{title}</h2>
-      {subtitle && <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mt-4 leading-relaxed">{subtitle}</p>}
+      <div className="mt-6 mx-auto w-20 h-1 bg-accent rounded-full" />
     </div>
   );
 }

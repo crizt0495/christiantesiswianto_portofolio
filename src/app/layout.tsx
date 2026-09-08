@@ -1,7 +1,20 @@
 import type { Metadata } from 'next';
+import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import { personal } from '@/data/portfolioData';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import './globals.css';
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-sans',
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-mono',
+});
 
 const siteUrl = 'https://christiantesiswianto.dev';
 
@@ -91,10 +104,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body className="bg-zinc-50 text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300">
+      <body
+        className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} bg-bg dark:bg-dark-bg text-text dark:text-dark-text antialiased`}
+      >
         <a
           href="#home"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-zinc-100 focus:text-zinc-900 focus:rounded-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:font-bold focus:border-3 focus:border-border focus:shadow-[4px_4px_0_var(--color-shadow)]"
         >
           Skip to main content
         </a>

@@ -4,46 +4,44 @@ import { technologies } from '@/data/portfolioData';
 import { SectionHeading } from './SectionHeading';
 
 const categories = [
-  { key: 'backend', label: 'Backend' },
-  { key: 'frontend', label: 'Frontend' },
-  { key: 'database', label: 'Database' },
-  { key: 'tools', label: 'Tools' },
+  { key: 'backend', label: 'Backend', color: 'bg-accent' },
+  { key: 'frontend', label: 'Frontend', color: 'bg-accent-vivid' },
+  { key: 'database', label: 'Database', color: 'bg-accent-green' },
+  { key: 'tools', label: 'Tools', color: 'bg-accent-yellow' },
 ] as const;
 
 export function TechnologyCard() {
   return (
-    <section id="technologies" className="py-24 sm:py-32 bg-zinc-100/50 dark:bg-white/[0.02]">
+    <section id="technologies" className="py-24 sm:py-32 nb-section-alt">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Tech Stack"
           title="Technologies I Work With"
-          subtitle="A focused, battle-tested set of technologies I use to ship reliable software."
+          subtitle="A focused set of tools and technologies I use to build reliable software."
         />
 
-        <div className="space-y-10">
+        <div className="space-y-12">
           {categories.map((category) => {
             const items = technologies.filter((t) => t.category === category.key);
             if (items.length === 0) return null;
 
             return (
               <div key={category.key}>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="w-8 h-px bg-gradient-to-r from-blue-500 to-transparent" />
-                  <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className={`w-3 h-3 rounded-sm ${category.color}`} />
+                  <h3 className="text-sm font-bold text-text-secondary dark:text-dark-text-secondary uppercase tracking-widest">
                     {category.label}
                   </h3>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {items.map((tech) => (
                     <div
                       key={tech.name}
-                      className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm hover:shadow-md transition-all duration-300 dark:border-white/10 dark:bg-white/[0.03] dark:hover:bg-white/[0.06] dark:shadow-none"
+                      className="nb-card-flat p-5 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_var(--color-shadow)] dark:hover:shadow-[6px_6px_0_var(--color-dark-shadow)] transition-all duration-150"
                     >
-                      <h4 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-1.5 flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-violet-400 group-hover:scale-150 transition-transform" />
+                      <h4 className="text-base font-bold text-text dark:text-dark-text mb-2 uppercase tracking-tight">
                         {tech.name}
                       </h4>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                      <p className="text-sm text-text-secondary dark:text-dark-text-secondary leading-relaxed">
                         {tech.description}
                       </p>
                     </div>

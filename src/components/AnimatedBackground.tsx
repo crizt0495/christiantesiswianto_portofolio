@@ -13,10 +13,6 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -25,12 +21,8 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
 
     let animationId: number;
     let gridOffset = 0;
-    let isDark = document.documentElement.classList.contains('dark');
 
-    const observer = new MutationObserver(() => {
-      isDark = document.documentElement.classList.contains('dark');
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    const isDark = document.documentElement.classList.contains('dark');
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -42,13 +34,12 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const gridSize = 60;
-      const lineWidth = 1;
+      const lineWidth = 2;
+      const opacity = isDark ? 0.06 : 0.08;
 
-      if (isDark) {
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
-      } else {
-        ctx.strokeStyle = 'rgba(9, 9, 11, 0.06)';
-      }
+      ctx.strokeStyle = isDark
+        ? `rgba(255, 255, 255, ${opacity})`
+        : `rgba(0, 0, 0, ${opacity})`;
       ctx.lineWidth = lineWidth;
 
       const offsetY = gridOffset % gridSize;
@@ -68,32 +59,36 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
       }
     };
 
-    const drawGlow = () => {
+    const drawAccentShapes = () => {
       if (!ctx || !canvas) return;
-      const centerX = canvas.width * 0.7;
+      const centerX = canvas.width * 0.75;
       const centerY = canvas.height * 0.3;
-      const radius = Math.min(canvas.width, canvas.height) * 0.4;
+      const radius = Math.min(canvas.width, canvas.height) * 0.35;
 
       const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
-
-      if (isDark) {
-        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.08)');
-        gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.03)');
-        gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
-      } else {
-        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.05)');
-        gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.02)');
-        gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
-      }
+      gradient.addColorStop(0, isDark ? 'rgba(37, 99, 235, 0.12)' : 'rgba(37, 99, 235, 0.06)');
+      gradient.addColorStop(0.5, isDark ? 'rgba(37, 99, 235, 0.04)' : 'rgba(37, 99, 235, 0.02)');
+      gradient.addColorStop(1, 'rgba(37, 99, 235, 0)');
 
       ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const accentCenterX = canvas.width * 0.2;
+      const accentCenterY = canvas.height * 0.7;
+      const accentRadius = Math.min(canvas.width, canvas.height) * 0.25;
+
+      const accentGrad = ctx.createRadialGradient(accentCenterX, accentCenterY, 0, accentCenterX, accentCenterY, accentRadius);
+      accentGrad.addColorStop(0, isDark ? 'rgba(255, 107, 53, 0.08)' : 'rgba(255, 107, 53, 0.04)');
+      accentGrad.addColorStop(1, 'rgba(255, 107, 53, 0)');
+
+      ctx.fillStyle = accentGrad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
     const animate = () => {
       drawGrid();
-      drawGlow();
-      gridOffset += 0.1;
+      drawAccentShapes();
+      gridOffset += 0.15;
       animationId = requestAnimationFrame(animate);
     };
 
@@ -105,9 +100,8 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', resize);
-      observer.disconnect();
     };
-  }, [mounted]);
+  }, []);
 
   if (!mounted) return null;
 

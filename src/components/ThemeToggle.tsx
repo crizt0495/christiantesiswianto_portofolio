@@ -14,7 +14,9 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-9 h-9 rounded-lg border border-zinc-200 bg-zinc-100" aria-hidden="true" />;
+    return (
+      <div className="w-9 h-9 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card" aria-hidden="true" />
+    );
   }
 
   const cycleTheme = () => {
@@ -23,19 +25,21 @@ export function ThemeToggle() {
     else setTheme('system');
   };
 
-  const Icon = theme === 'system' ? Monitor : resolvedTheme === 'dark' ? Moon : Sun;
-  const label =
-    theme === 'system' ? 'System theme' : theme === 'dark' ? 'Dark theme' : 'Light theme';
+  const Icon = theme === 'system' ? Monitor : resolvedTheme === 'dark' ? Sun : Moon;
+  const label = theme === 'system' ? 'System theme' : theme === 'dark' ? 'Light theme' : 'Dark theme';
 
   return (
     <button
       onClick={cycleTheme}
       className={cn(
-        'w-9 h-9 rounded-lg border transition-all duration-200',
+        'w-9 h-9 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card',
         'flex items-center justify-center',
-        'border-zinc-200 bg-zinc-100 text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200',
-        'dark:border-white/10 dark:bg-white/5 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-white/10',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50'
+        'text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt',
+        'shadow-[2px_2px_0_var(--color-shadow)] dark:shadow-[2px_2px_0_var(--color-dark-shadow)]',
+        'hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0_var(--color-shadow)] dark:hover:shadow-[1px_1px_0_var(--color-dark-shadow)]',
+        'active:translate-x-[2px] active:translate-y-[2px] active:shadow-none',
+        'transition-all duration-100',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent'
       )}
       aria-label={`Current: ${label}. Click to change theme.`}
       title={label}

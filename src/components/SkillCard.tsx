@@ -4,16 +4,16 @@ import { skills } from '@/data/portfolioData';
 import { SectionHeading } from './SectionHeading';
 
 const categories = [
-  { key: 'backend', label: 'Backend' },
-  { key: 'frontend', label: 'Frontend' },
-  { key: 'database', label: 'Database' },
-  { key: 'development', label: 'Dev Tools' },
+  { key: 'backend', label: 'Backend', color: 'bg-accent' },
+  { key: 'frontend', label: 'Frontend', color: 'bg-accent-vivid' },
+  { key: 'database', label: 'Database', color: 'bg-accent-green' },
+  { key: 'development', label: 'Development', color: 'bg-accent-pink' },
 ] as const;
 
-const levelConfig = {
-  primary: { label: 'Primary', color: 'bg-gradient-to-r from-blue-500 to-indigo-500', width: '100%' },
-  strong: { label: 'Strong', color: 'bg-gradient-to-r from-indigo-500 to-violet-500', width: '75%' },
-  working: { label: 'Working', color: 'bg-gradient-to-r from-zinc-400 to-zinc-500', width: '50%' },
+const levelStyle = {
+  primary: { label: 'Primary', bg: 'bg-accent', text: 'text-white' },
+  strong: { label: 'Strong', bg: 'bg-text dark:bg-dark-text', text: 'text-bg dark:text-dark-bg' },
+  working: { label: 'Working', bg: 'bg-bg-alt dark:bg-dark-bg-alt', text: 'text-text-secondary dark:text-dark-text-secondary' },
 } as const;
 
 export function SkillCard() {
@@ -21,12 +21,11 @@ export function SkillCard() {
     <section id="skills" className="py-24 sm:py-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="My Skills"
-          title="Technical Expertise"
-          subtitle="Technologies and tools I use daily to build production systems."
+          title="Technical Skills"
+          subtitle="Skills and expertise I bring to every project."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category) => {
             const items = skills.filter((s) => s.category === category.key);
             if (items.length === 0) return null;
@@ -34,33 +33,23 @@ export function SkillCard() {
             return (
               <div
                 key={category.key}
-                className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-colors duration-300 dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none"
+                className="nb-card p-6"
               >
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-indigo-500 dark:text-indigo-400 mb-6">
-                  {category.label}
-                </h3>
-                <ul className="space-y-5">
-                  {items.map((skill) => {
-                    const cfg = levelConfig[skill.level];
-                    return (
-                      <li key={skill.name}>
-                        <div className="flex items-center justify-between gap-2 mb-1.5">
-                          <span className="text-sm text-zinc-800 dark:text-zinc-200 font-medium">
-                            {skill.name}
-                          </span>
-                          <span className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider">
-                            {cfg.label}
-                          </span>
-                        </div>
-                        <div className="h-1 w-full bg-zinc-200/70 rounded-full overflow-hidden dark:bg-white/5">
-                          <div
-                            className={`h-full rounded-full ${cfg.color}`}
-                            style={{ width: cfg.width }}
-                          />
-                        </div>
-                      </li>
-                    );
-                  })}
+                <div className="flex items-center gap-2 mb-5">
+                  <div className={`w-3 h-3 rounded-sm ${category.color}`} />
+                  <h3 className="text-sm font-bold text-text-secondary dark:text-dark-text-secondary uppercase tracking-widest">
+                    {category.label}
+                  </h3>
+                </div>
+                <ul className="space-y-3">
+                  {items.map((skill) => (
+                    <li key={skill.name} className="flex items-center justify-between gap-3">
+                      <span className="text-sm font-medium text-text dark:text-dark-text">{skill.name}</span>
+                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm ${levelStyle[skill.level].bg} ${levelStyle[skill.level].text}`}>
+                        {levelStyle[skill.level].label}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             );

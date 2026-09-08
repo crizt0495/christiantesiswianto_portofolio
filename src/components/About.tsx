@@ -1,16 +1,15 @@
 'use client';
 
 import { Code2, Database, Globe, Server, Layout, BarChart3 } from 'lucide-react';
-import { personal } from '@/data/portfolioData';
 import { SectionHeading } from './SectionHeading';
 
 const highlights = [
-  { icon: Server, label: 'Backend Development', color: 'from-blue-500 to-blue-600' },
-  { icon: Globe, label: 'Full-Stack Web', color: 'from-indigo-500 to-indigo-600' },
-  { icon: Code2, label: 'REST API Design', color: 'from-violet-500 to-violet-600' },
-  { icon: Database, label: 'Database Architecture', color: 'from-purple-500 to-purple-600' },
-  { icon: Layout, label: 'Business Applications', color: 'from-fuchsia-500 to-fuchsia-600' },
-  { icon: BarChart3, label: 'Performance & Scale', color: 'from-pink-500 to-pink-600' },
+  { icon: Server, label: 'Backend Development', color: 'bg-accent' },
+  { icon: Globe, label: 'Full-Stack Web Development', color: 'bg-accent-vivid' },
+  { icon: Code2, label: 'REST API', color: 'bg-accent-green' },
+  { icon: Database, label: 'Database Architecture', color: 'bg-accent-yellow' },
+  { icon: Layout, label: 'Business Applications', color: 'bg-accent-pink' },
+  { icon: BarChart3, label: 'Application Performance', color: 'bg-accent' },
 ];
 
 export function About() {
@@ -18,59 +17,34 @@ export function About() {
     <section id="about" className="py-24 sm:py-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="About Me"
-          title="Crafting Solutions That Scale"
-          subtitle="I focus on building software that is not just functional, but reliable, maintainable, and built for the long term."
+          title="About Me"
+          subtitle="A developer focused on building practical and reliable solutions."
         />
 
-        <div className="grid lg:grid-cols-5 gap-8 items-start">
-          <div className="lg:col-span-3 rounded-2xl border border-zinc-200 bg-white p-8 sm:p-10 dark:border-white/10 dark:bg-white/[0.03] shadow-sm dark:shadow-none">
-            <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-base mb-6">
-              {personal.description}
-            </p>
-            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
-              I specialize in building robust backend systems with <span className="text-indigo-600 dark:text-indigo-300 font-medium">Golang</span> and creating modern, responsive web applications with{' '}
-              <span className="text-indigo-600 dark:text-indigo-300 font-medium">Next.js</span> and{' '}
-              <span className="text-indigo-600 dark:text-indigo-300 font-medium">TypeScript</span>. My experience spans
-              designing efficient database architectures, developing secure REST APIs, and deploying
-              production-ready systems that handle real business operations.
+        <div className="max-w-3xl mx-auto">
+          <div className="nb-card p-8 sm:p-10">
+            <p className="text-text dark:text-dark-text leading-relaxed mb-8 text-lg">
+              Software developer focused on building practical, reliable, and scalable digital
+              solutions. I work primarily with Golang for backend development and Next.js for modern
+              web applications, supported by strong database experience with PostgreSQL and MySQL.
             </p>
 
-            <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-zinc-200 dark:border-white/5">
-              <div>
-                <div className="text-2xl font-bold text-gradient mb-1">2+</div>
-                <div className="text-xs text-zinc-500">Years Building</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-gradient mb-1">Production</div>
-                <div className="text-xs text-zinc-500">Grade Systems</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-gradient mb-1">Backend</div>
-                <div className="text-xs text-zinc-500">Focused Dev</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-2 grid grid-cols-2 gap-3">
-            {highlights.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.label}
-                  className="group rounded-xl border border-zinc-200 bg-zinc-50 p-4 hover:bg-zinc-100 hover:border-indigo-500/30 transition-all duration-300 cursor-default dark:border-white/10 dark:bg-white/[0.02] dark:hover:bg-white/[0.05]"
-                >
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {highlights.map((item) => {
+                const Icon = item.icon;
+                return (
                   <div
-                    className={`w-9 h-9 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center mb-3 shadow-lg`}
+                    key={item.label}
+                    className="flex items-center gap-3 text-sm font-medium text-text-secondary dark:text-dark-text-secondary"
                   >
-                    <Icon className="w-4 h-4 text-white" />
+                    <div className={`w-8 h-8 rounded-md ${item.color} flex items-center justify-center shrink-0`}>
+                      <Icon className="w-4 h-4 text-white" />
+                    </div>
+                    <span>{item.label}</span>
                   </div>
-                  <div className="text-xs font-medium text-zinc-800 dark:text-zinc-200 leading-snug">
-                    {item.label}
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
