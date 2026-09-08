@@ -35,8 +35,7 @@ export function ThemeToggle() {
         'w-9 h-9 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card',
         'flex items-center justify-center',
         'text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt',
-        'shadow-[2px_2px_0_var(--color-shadow)] dark:shadow-[2px_2px_0_var(--color-dark-shadow)]',
-        'hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0_var(--color-shadow)] dark:hover:shadow-[1px_1px_0_var(--color-dark-shadow)]',
+        'shadow-[3px_3px_0_var(--color-shadow)] dark:shadow-[3px_3px_0_var(--color-dark-shadow)]',
         'active:translate-x-[2px] active:translate-y-[2px] active:shadow-none',
         'transition-all duration-100',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent'

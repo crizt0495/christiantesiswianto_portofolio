@@ -67,7 +67,7 @@ export function Navbar() {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="text-xs font-semibold uppercase tracking-wide text-text-secondary dark:text-dark-text-secondary hover:text-text dark:hover:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt px-3 py-2 rounded-md transition-colors"
+                  className="text-xs font-semibold uppercase tracking-wide text-text-secondary dark:text-dark-text-secondary hover:text-text dark:hover:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt px-3 py-2 rounded-lg transition-colors"
                 >
                   {link.label}
                 </a>
@@ -83,8 +83,7 @@ export function Navbar() {
                   'w-9 h-9 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card',
                   'flex items-center justify-center',
                   'text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt',
-                  'shadow-[2px_2px_0_var(--color-shadow)] dark:shadow-[2px_2px_0_var(--color-dark-shadow)]',
-                  'hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0_var(--color-shadow)] dark:hover:shadow-[1px_1px_0_var(--color-dark-shadow)]',
+                  'shadow-[3px_3px_0_var(--color-shadow)] dark:shadow-[3px_3px_0_var(--color-dark-shadow)]',
                   'active:translate-x-[2px] active:translate-y-[2px] active:shadow-none',
                   'transition-all duration-100'
                 )}
@@ -100,8 +99,7 @@ export function Navbar() {
                   'w-9 h-9 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card',
                   'flex items-center justify-center',
                   'text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt',
-                  'shadow-[2px_2px_0_var(--color-shadow)] dark:shadow-[2px_2px_0_var(--color-dark-shadow)]',
-                  'hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0_var(--color-shadow)] dark:hover:shadow-[1px_1px_0_var(--color-dark-shadow)]',
+                  'shadow-[3px_3px_0_var(--color-shadow)] dark:shadow-[3px_3px_0_var(--color-dark-shadow)]',
                   'active:translate-x-[2px] active:translate-y-[2px] active:shadow-none',
                   'transition-all duration-100'
                 )}
@@ -118,7 +116,7 @@ export function Navbar() {
                 'md:hidden w-10 h-10 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card',
                 'flex items-center justify-center',
                 'text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt',
-                'shadow-[2px_2px_0_var(--color-shadow)] dark:shadow-[2px_2px_0_var(--color-dark-shadow)]',
+                'shadow-[3px_3px_0_var(--color-shadow)] dark:shadow-[3px_3px_0_var(--color-dark-shadow)]',
                 'active:translate-x-[2px] active:translate-y-[2px] active:shadow-none',
                 'transition-all duration-100'
               )}

@@ -34,7 +34,7 @@ export function Footer() {
               href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-lg border-2 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card flex items-center justify-center text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
+              className="w-9 h-9 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card flex items-center justify-center text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
               aria-label="GitHub Profile"
             >
               <Github className="w-4 h-4" />
@@ -43,7 +43,7 @@ export function Footer() {
               href={socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-lg border-2 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card flex items-center justify-center text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
+              className="w-9 h-9 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card flex items-center justify-center text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
               aria-label="LinkedIn Profile"
             >
               <Linkedin className="w-4 h-4" />

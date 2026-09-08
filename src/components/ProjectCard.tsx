@@ -14,7 +14,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
   return (
-    <article className="group nb-card overflow-hidden hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0_var(--color-shadow)] dark:hover:shadow-[9px_9px_0_var(--color-dark-shadow)] transition-all duration-200">
+    <article className="group nb-card overflow-hidden relative">
       <div className="relative aspect-video overflow-hidden border-b-3 border-border dark:border-dark-border bg-bg-alt dark:bg-dark-bg-alt">
         {project.image ? (
           <>
@@ -42,7 +42,7 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
         <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-1 group-hover:translate-y-0">
           <button
             onClick={() => onViewDetails(project)}
-            className="w-8 h-8 rounded-md border-2 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card flex items-center justify-center text-text dark:text-dark-text shadow-[2px_2px_0_var(--color-shadow)] dark:shadow-[2px_2px_0_var(--color-dark-shadow)] hover:bg-accent hover:text-white hover:border-accent hover:shadow-[2px_2px_0_var(--color-accent)]"
+            className="w-8 h-8 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card flex items-center justify-center text-text dark:text-dark-text shadow-[3px_3px_0_var(--color-shadow)] dark:shadow-[3px_3px_0_var(--color-dark-shadow)] hover:bg-accent hover:text-white hover:border-accent hover:shadow-[4px_4px_0_var(--color-accent)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all duration-100"
             aria-label="Expand"
           >
             <Maximize2 className="w-3.5 h-3.5" />
@@ -200,7 +200,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.keyFeatures.map((feature, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-2 text-sm text-text dark:text-dark-text p-2 rounded-md border-2 border-border/30 dark:border-dark-border/30 bg-bg-alt/50 dark:bg-dark-bg-alt/50"
+                    className="flex items-start gap-2 text-sm text-text dark:text-dark-text p-2.5 rounded-lg border-3 border-border/30 dark:border-dark-border/30 bg-bg-alt/40 dark:bg-dark-bg-alt/40"
                   >
                     <CheckCircle className="w-4 h-4 text-accent-green shrink-0 mt-0.5" />
                     <span className="leading-snug">{feature}</span>

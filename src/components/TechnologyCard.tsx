@@ -37,7 +37,7 @@ export function TechnologyCard() {
                   {items.map((tech) => (
                     <div
                       key={tech.name}
-                      className="nb-card-flat p-5 border-t-4 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_var(--color-shadow)] dark:hover:shadow-[6px_6px_0_var(--color-dark-shadow)] transition-all duration-150 border-t-black dark:border-t-dark-text group"
+                      className="nb-card-flat p-5 group"
                     >
                       <h4 className="text-base font-bold text-text dark:text-dark-text mb-2 uppercase tracking-tight flex items-center gap-2">
                         <span className={`w-2.5 h-2.5 rounded-sm ${category.color} shrink-0 group-hover:scale-125 transition-transform`} />

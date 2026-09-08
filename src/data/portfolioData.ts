@@ -73,15 +73,15 @@ export const personal: Personal = {
   tagline: 'Building Reliable Digital Solutions with Go & Modern Web Technologies.',
   description:
     'Software developer focused on building practical, reliable, and scalable digital solutions. I work primarily with Golang for backend development and Next.js for modern web applications, supported by strong database experience with PostgreSQL and MySQL.',
-  email: 'christian.tesiswianto@email.com',
+  email: 'christwnto@gmai.com',
   location: 'Indonesia',
   availability: 'Open to opportunities',
 };
 
 export const socials: Social = {
-  github: 'https://github.com/christiantesiswianto',
-  linkedin: 'https://linkedin.com/in/christiantesiswianto',
-  whatsapp: 'https://wa.me/6281234567890',
+  github: 'https://github.com/crizt0495',
+  linkedin: 'https://www.linkedin.com/in/christian-tesiswianto-453444171',
+  whatsapp: 'https://wa.me/6281335884670',
 };
 
 export const technologies: Technology[] = [

@@ -36,10 +36,10 @@ export function ServiceCard() {
             return (
               <div
                 key={service.title}
-                className="nb-card-flat p-6 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_var(--color-shadow)] dark:hover:shadow-[6px_6px_0_var(--color-dark-shadow)] transition-all duration-150 group"
+                className="nb-card-flat p-6 group"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <div className={`w-11 h-11 rounded-lg ${cardAccents[index % cardAccents.length]} flex items-center justify-center shadow-[2px_2px_0_var(--color-shadow)] group-hover:shadow-[3px_3px_0_var(--color-shadow)] transition-all`}>
+                  <div className={`w-11 h-11 rounded-lg ${cardAccents[index % cardAccents.length]} flex items-center justify-center shadow-[3px_3px_0_var(--color-shadow)] group-hover:shadow-[4px_4px_0_var(--color-shadow)] transition-all`}>
                     <Icon className="w-5 h-5 text-white" />
                   </div>
                   <span className="text-xs font-bold text-text-muted dark:text-dark-text-muted">

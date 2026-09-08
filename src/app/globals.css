@@ -119,12 +119,16 @@ body.dark-mode {
 }
 
 /* Neo Brutalism Base Styles */
+.nb-card,
+.nb-card-flat {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
 .nb-card {
   background: var(--color-bg-card);
   border: 3px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: 6px 6px 0 var(--color-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .dark .nb-card {
@@ -153,6 +157,15 @@ body.dark-mode {
   background: var(--color-dark-bg-card);
   border-color: var(--color-dark-border);
   box-shadow: 4px 4px 0 var(--color-dark-shadow);
+}
+
+.nb-card-flat:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-shadow);
+}
+
+.dark .nb-card-flat:hover {
+  box-shadow: 6px 6px 0 var(--color-dark-shadow);
 }
 
 .nb-section-alt {
@@ -213,5 +226,14 @@ body.dark-mode {
 
   .dark .nb-card:hover {
     box-shadow: 8px 8px 0 var(--color-dark-shadow);
+  }
+
+  .nb-card-flat:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-shadow);
+  }
+
+  .dark .nb-card-flat:hover {
+    box-shadow: 6px 6px 0 var(--color-dark-shadow);
   }
 }

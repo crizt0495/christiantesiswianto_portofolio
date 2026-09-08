@@ -85,7 +85,7 @@ export function Contact() {
                   href={option.href}
                   target={option.label !== 'Email' ? '_blank' : undefined}
                   rel={option.label !== 'Email' ? 'noopener noreferrer' : undefined}
-                  className="nb-card-flat flex items-center gap-3 p-4 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0_var(--color-shadow)] dark:hover:shadow-[5px_5px_0_var(--color-dark-shadow)] transition-all duration-150 group"
+                  className="nb-card-flat flex items-center gap-3 p-4 group"
                 >
                   <div className={`w-10 h-10 rounded-lg ${option.color} flex items-center justify-center text-white shrink-0`}>
                     <Icon className="w-4 h-4" />
@@ -103,7 +103,7 @@ export function Contact() {
                 href={socials.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="nb-card-flat flex items-center gap-3 p-4 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0_var(--color-shadow)] dark:hover:shadow-[5px_5px_0_var(--color-dark-shadow)] transition-all duration-150 group"
+                className="nb-card-flat flex items-center gap-3 p-4 group"
               >
                 <div className="w-10 h-10 rounded-lg bg-accent-green flex items-center justify-center text-white shrink-0">
                   <MessageSquare className="w-4 h-4" />

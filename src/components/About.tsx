@@ -60,9 +60,9 @@ export function About() {
                 return (
                   <div
                     key={item.label}
-                    className="flex items-center gap-3 text-sm font-semibold text-text dark:text-dark-text p-3 rounded-lg border-2 border-border/40 dark:border-dark-border/40 bg-bg-alt/40 dark:bg-dark-bg-alt/40 hover:border-accent hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
+                    className="flex items-center gap-3 text-sm font-semibold text-text dark:text-dark-text p-3 rounded-lg border-3 border-border/30 dark:border-dark-border/30 bg-bg-alt/40 dark:bg-dark-bg-alt/40 hover:border-accent hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
                   >
-                    <div className={`w-9 h-9 rounded-md ${item.color} flex items-center justify-center shrink-0 shadow-[2px_2px_0_var(--color-shadow)]`}>
+                    <div className={`w-9 h-9 rounded-lg ${item.color} flex items-center justify-center shrink-0 shadow-[3px_3px_0_var(--color-shadow)]`}>
                       <Icon className="w-4 h-4 text-white" />
                     </div>
                     <span className="leading-snug">{item.label}</span>
