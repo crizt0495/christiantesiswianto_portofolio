@@ -10,7 +10,7 @@ const cardColors = [
 
 const numberStyles = [
   'bg-accent text-white',
-  'bg-accent-vivid dark:bg-accent-vivid-dark text-text',
+  'bg-accent-green text-white',
 ];
 
 export function Philosophy() {
