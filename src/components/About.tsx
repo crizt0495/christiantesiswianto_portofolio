@@ -6,9 +6,9 @@ import { SectionHeading } from './SectionHeading';
 
 const highlights = [
   { icon: Server, label: 'Backend Development', color: 'bg-accent', iconColor: 'text-white' },
-  { icon: Globe, label: 'Full-Stack Web', color: 'bg-accent-vivid', iconColor: 'text-text dark:text-dark-text' },
+  { icon: Globe, label: 'Full-Stack Web', color: 'bg-accent-vivid dark:bg-accent-vivid-dark', iconColor: 'text-text' },
   { icon: Code2, label: 'REST API Design', color: 'bg-accent-green', iconColor: 'text-white' },
-  { icon: Database, label: 'Database Architecture', color: 'bg-accent-yellow', iconColor: 'text-text dark:text-dark-text' },
+  { icon: Database, label: 'Database Architecture', color: 'bg-accent-yellow', iconColor: 'text-text' },
   { icon: Layout, label: 'Business Applications', color: 'bg-accent-pink', iconColor: 'text-white' },
   { icon: BarChart3, label: 'Performance & Scale', color: 'bg-accent', iconColor: 'text-white' },
 ];
@@ -37,7 +37,7 @@ export function About() {
             <p className="text-text-secondary dark:text-dark-text-secondary leading-relaxed text-base mb-8">
               I specialize in building fast, scalable full-stack applications with{' '}
               <span className="font-bold text-accent">Next.js</span> and{' '}
-              <span className="font-bold text-accent-vivid">TypeScript</span> — powering backend
+              <span className="font-bold text-accent-vivid dark:text-accent-vivid-dark">TypeScript</span> — powering backend
               services, secure REST APIs, and modern, responsive web interfaces. My experience spans
               designing efficient database architectures, developing secure REST APIs, and deploying
               production-ready systems that handle real business operations.

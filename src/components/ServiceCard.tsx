@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 const cardAccents = [
   'bg-accent text-white',
-  'bg-accent-vivid text-text dark:text-dark-text',
+  'bg-accent-vivid dark:bg-accent-vivid-dark text-text',
 ];
 
 export function ServiceCard() {

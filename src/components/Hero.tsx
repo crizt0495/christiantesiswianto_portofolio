@@ -38,7 +38,7 @@ export function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text dark:text-dark-text leading-[1.05] mb-6 uppercase tracking-tight">
               Building <span className="text-accent">Reliable</span> Digital Solutions with{' '}
               <span className="text-accent">Next.js</span> &amp;{' '}
-              <span className="text-accent-vivid">Modern Web</span>
+              <span className="text-accent-vivid dark:text-accent-vivid-dark">Modern Web</span>
             </h1>
 
             <p className="text-base sm:text-lg text-text-secondary dark:text-dark-text-secondary leading-relaxed mb-9 max-w-xl">
@@ -138,7 +138,7 @@ export function Hero() {
               </pre>
             </div>
 
-            <div className="absolute -top-5 -right-4 nb-card-flat px-3 py-2 flex items-center gap-2 bg-accent-vivid text-text dark:text-dark-text border-border">
+            <div className="absolute -top-5 -right-4 nb-card-flat px-3 py-2 flex items-center gap-2 bg-accent-vivid dark:bg-accent-vivid-dark text-text border-border">
               <Code2 className="w-3.5 h-3.5" />
               <span className="text-xs font-bold">Node.js</span>
             </div>

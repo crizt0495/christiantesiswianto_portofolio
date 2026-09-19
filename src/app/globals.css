@@ -10,12 +10,13 @@
   --color-text-muted: #8B948D;
   --color-accent: #0F6B52;
   --color-accent-hover: #0A5742;
-  --color-accent-vivid: #C9A227;
-  --color-accent-green: #16A34A;
+  --color-accent-vivid: #80680F;
+  --color-accent-vivid-dark: #C9A227;
+  --color-accent-green: #15803D;
   --color-accent-yellow: #D9A621;
   --color-accent-pink: #B04A8B;
   --color-shadow: #16201B;
-  --color-success: #16A34A;
+  --color-success: #15803D;
   --color-error: #EF4444;
 
   --color-dark-bg: #0B120F;
