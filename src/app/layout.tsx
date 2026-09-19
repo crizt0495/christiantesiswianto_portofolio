@@ -16,7 +16,7 @@ const jetBrainsMono = JetBrains_Mono({
   variable: '--font-mono',
 });
 
-const siteUrl = 'https://christiantesiswianto.dev';
+const siteUrl = 'https://christiantesiswiantoportofolio.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
