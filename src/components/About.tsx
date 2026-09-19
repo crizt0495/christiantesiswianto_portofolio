@@ -5,12 +5,12 @@ import { personal } from '@/data/portfolioData';
 import { SectionHeading } from './SectionHeading';
 
 const highlights = [
-  { icon: Server, label: 'Backend Development', color: 'bg-accent' },
-  { icon: Globe, label: 'Full-Stack Web', color: 'bg-accent-vivid' },
-  { icon: Code2, label: 'REST API Design', color: 'bg-accent-green' },
-  { icon: Database, label: 'Database Architecture', color: 'bg-accent-yellow' },
-  { icon: Layout, label: 'Business Applications', color: 'bg-accent-pink' },
-  { icon: BarChart3, label: 'Performance & Scale', color: 'bg-accent' },
+  { icon: Server, label: 'Backend Development', color: 'bg-accent', iconColor: 'text-white' },
+  { icon: Globe, label: 'Full-Stack Web', color: 'bg-accent-vivid', iconColor: 'text-text dark:text-dark-text' },
+  { icon: Code2, label: 'REST API Design', color: 'bg-accent-green', iconColor: 'text-white' },
+  { icon: Database, label: 'Database Architecture', color: 'bg-accent-yellow', iconColor: 'text-text dark:text-dark-text' },
+  { icon: Layout, label: 'Business Applications', color: 'bg-accent-pink', iconColor: 'text-white' },
+  { icon: BarChart3, label: 'Performance & Scale', color: 'bg-accent', iconColor: 'text-white' },
 ];
 
 const stats = [
@@ -35,10 +35,10 @@ export function About() {
               {personal.description}
             </p>
             <p className="text-text-secondary dark:text-dark-text-secondary leading-relaxed text-base mb-8">
-              I specialize in building robust backend systems with{' '}
-              <span className="font-bold text-accent">Golang</span> and creating modern, responsive
-              web applications with <span className="font-bold text-accent">Next.js</span> and{' '}
-              <span className="font-bold text-accent-vivid">TypeScript</span>. My experience spans
+              I specialize in building fast, scalable full-stack applications with{' '}
+              <span className="font-bold text-accent">Next.js</span> and{' '}
+              <span className="font-bold text-accent-vivid">TypeScript</span> — powering backend
+              services, secure REST APIs, and modern, responsive web interfaces. My experience spans
               designing efficient database architectures, developing secure REST APIs, and deploying
               production-ready systems that handle real business operations.
             </p>
@@ -63,7 +63,7 @@ export function About() {
                     className="flex items-center gap-3 text-sm font-semibold text-text dark:text-dark-text p-3 rounded-lg border-3 border-border/30 dark:border-dark-border/30 bg-bg-alt/40 dark:bg-dark-bg-alt/40 hover:border-accent hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
                   >
                     <div className={`w-9 h-9 rounded-lg ${item.color} flex items-center justify-center shrink-0 shadow-[3px_3px_0_var(--color-shadow)]`}>
-                      <Icon className="w-4 h-4 text-white" />
+                      <Icon className={`w-4 h-4 ${item.iconColor}`} />
                     </div>
                     <span className="leading-snug">{item.label}</span>
                   </div>

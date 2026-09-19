@@ -66,9 +66,9 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
       const radius = Math.min(canvas.width, canvas.height) * 0.35;
 
       const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
-      gradient.addColorStop(0, isDark ? 'rgba(37, 99, 235, 0.12)' : 'rgba(37, 99, 235, 0.06)');
-      gradient.addColorStop(0.5, isDark ? 'rgba(37, 99, 235, 0.04)' : 'rgba(37, 99, 235, 0.02)');
-      gradient.addColorStop(1, 'rgba(37, 99, 235, 0)');
+      gradient.addColorStop(0, isDark ? 'rgba(15, 107, 82, 0.10)' : 'rgba(15, 107, 82, 0.05)');
+      gradient.addColorStop(0.5, isDark ? 'rgba(15, 107, 82, 0.04)' : 'rgba(15, 107, 82, 0.02)');
+      gradient.addColorStop(1, 'rgba(15, 107, 82, 0)');
 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -78,8 +78,8 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
       const accentRadius = Math.min(canvas.width, canvas.height) * 0.25;
 
       const accentGrad = ctx.createRadialGradient(accentCenterX, accentCenterY, 0, accentCenterX, accentCenterY, accentRadius);
-      accentGrad.addColorStop(0, isDark ? 'rgba(255, 107, 53, 0.08)' : 'rgba(255, 107, 53, 0.04)');
-      accentGrad.addColorStop(1, 'rgba(255, 107, 53, 0)');
+      accentGrad.addColorStop(0, isDark ? 'rgba(201, 162, 39, 0.07)' : 'rgba(201, 162, 39, 0.04)');
+      accentGrad.addColorStop(1, 'rgba(201, 162, 39, 0)');
 
       ctx.fillStyle = accentGrad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);

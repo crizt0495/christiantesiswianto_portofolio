@@ -30,9 +30,9 @@ export function SectionHeading({ title, subtitle, eyebrow, className }: SectionH
       <div className="mt-6 flex items-center justify-center gap-1">
         <span className="w-8 h-1 bg-accent rounded-full" />
         <span className="w-2 h-1 bg-accent-vivid rounded-full" />
-        <span className="w-1.5 h-1.5 rounded-full bg-accent-yellow" />
-        <span className="w-2 h-1 bg-accent-green rounded-full" />
-        <span className="w-8 h-1 bg-accent-pink rounded-full" />
+        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+        <span className="w-2 h-1 bg-accent-vivid rounded-full" />
+        <span className="w-8 h-1 bg-accent rounded-full" />
       </div>
     </div>
   );

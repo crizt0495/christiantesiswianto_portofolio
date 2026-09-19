@@ -13,11 +13,8 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 const cardAccents = [
-  'bg-accent',
-  'bg-accent-vivid',
-  'bg-accent-green',
-  'bg-accent-yellow',
-  'bg-accent-pink',
+  'bg-accent text-white',
+  'bg-accent-vivid text-text dark:text-dark-text',
 ];
 
 export function ServiceCard() {
@@ -40,7 +37,7 @@ export function ServiceCard() {
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`w-11 h-11 rounded-lg ${cardAccents[index % cardAccents.length]} flex items-center justify-center shadow-[3px_3px_0_var(--color-shadow)] group-hover:shadow-[4px_4px_0_var(--color-shadow)] transition-all`}>
-                    <Icon className="w-5 h-5 text-white" />
+                    <Icon className="w-5 h-5" />
                   </div>
                   <span className="text-xs font-bold text-text-muted dark:text-dark-text-muted">
                     0{index + 1}

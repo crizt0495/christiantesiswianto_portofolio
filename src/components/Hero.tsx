@@ -7,7 +7,7 @@ import { Badge } from './Badge';
 import { Button } from './Button';
 import { scrollToSection } from '@/lib/utils';
 
-const technologies = ['Golang', 'Next.js', 'PostgreSQL', 'MySQL'];
+const technologies = ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'MySQL'];
 
 const stats = [
   { value: '2+', label: 'Years Building' },
@@ -37,7 +37,7 @@ export function Hero() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text dark:text-dark-text leading-[1.05] mb-6 uppercase tracking-tight">
               Building <span className="text-accent">Reliable</span> Digital Solutions with{' '}
-              <span className="text-accent">Golang</span> &amp;{' '}
+              <span className="text-accent">Next.js</span> &amp;{' '}
               <span className="text-accent-vivid">Modern Web</span>
             </h1>
 
@@ -96,21 +96,18 @@ export function Hero() {
                 <span className="w-3 h-3 rounded-full bg-accent-yellow" />
                 <span className="w-3 h-3 rounded-full bg-accent-green" />
                 <span className="ml-3 text-xs font-mono font-semibold text-text-secondary dark:text-dark-text-secondary">
-                  developer.go
+                  developer.ts
                 </span>
               </div>
               <pre className="p-5 text-[13px] leading-6 font-mono overflow-hidden bg-bg dark:bg-dark-bg">
                 <code>
                   <span className="text-text-muted dark:text-dark-text-muted">{'// building reliable software'}</span>
                   {'\n'}
-                  <span className="text-accent-vivid">func</span>{' '}
+                  <span className="text-accent-vivid">const</span>{' '}
                   <span className="text-accent">profile</span>
-                  <span className="text-text dark:text-dark-text">()</span>{' '}
+                  <span className="text-text dark:text-dark-text">:</span>{' '}
                   <span className="text-accent-vivid">Developer</span>{' '}
-                  <span className="text-text dark:text-dark-text">{'{'}</span>
-                  {'\n'}  <span className="text-accent-vivid">return</span>{' '}
-                  <span className="text-accent-vivid">Developer</span>
-                  <span className="text-text dark:text-dark-text">{'{'}</span>
+                  <span className="text-text dark:text-dark-text">{'= {'}</span>
                   {'\n'}    <span className="text-accent">Name</span>
                   <span className="text-text dark:text-dark-text">:</span>{' '}
                   <span className="text-accent-green">{'&quot;Christian&quot;'}</span>
@@ -121,22 +118,29 @@ export function Hero() {
                   <span className="text-text dark:text-dark-text">,</span>
                   {'\n'}    <span className="text-accent">Stack</span>
                   <span className="text-text dark:text-dark-text">:</span>{' '}
-                  <span className="text-accent-green">{'&quot;Go · Next.js&quot;'}</span>
+                  <span className="text-accent-green">{'&quot;Next.js · TypeScript&quot;'}</span>
                   <span className="text-text dark:text-dark-text">,</span>
                   {'\n'}    <span className="text-accent">DB</span>
                   <span className="text-text dark:text-dark-text">:</span>{' '}
                   <span className="text-accent-green">{'&quot;PostgreSQL · MySQL&quot;'}</span>
                   <span className="text-text dark:text-dark-text">,</span>
-                  {'\n'}  <span className="text-text dark:text-dark-text">{'}'}</span>
+                  {'\n'}    <span className="text-accent">Lang</span>
+                  <span className="text-text dark:text-dark-text">:</span>{' '}
+                  <span className="text-accent-green">{'&quot;TypeScript&quot;'}</span>
+                  <span className="text-text dark:text-dark-text">,</span>
+                  {'\n'}  <span className="text-text dark:text-dark-text">{'};'}</span>
                   {'\n'}
-                  <span className="text-text dark:text-dark-text">{'}'}</span>
+                  <span className="text-accent-vivid">export</span>{' '}
+                  <span className="text-accent-vivid">default</span>{' '}
+                  <span className="text-accent">profile</span>
+                  <span className="text-text dark:text-dark-text">;</span>
                 </code>
               </pre>
             </div>
 
-            <div className="absolute -top-5 -right-4 nb-card-flat px-3 py-2 flex items-center gap-2 bg-accent text-white border-border">
+            <div className="absolute -top-5 -right-4 nb-card-flat px-3 py-2 flex items-center gap-2 bg-accent-vivid text-text dark:text-dark-text border-border">
               <Code2 className="w-3.5 h-3.5" />
-              <span className="text-xs font-bold">Go</span>
+              <span className="text-xs font-bold">Node.js</span>
             </div>
             <div className="absolute -bottom-5 -left-4 nb-card-flat px-3 py-2 flex items-center gap-2 bg-text dark:bg-dark-text text-bg dark:text-dark-bg border-border dark:border-dark-border">
               <Database className="w-3.5 h-3.5" />

@@ -20,7 +20,7 @@ interface FormErrors {
 
 const contactOptions = [
   { icon: Mail, label: 'Email', href: `mailto:${personal.email}`, text: personal.email, color: 'bg-accent' },
-  { icon: Linkedin, label: 'LinkedIn', href: socials.linkedin, text: 'LinkedIn Profile', color: 'bg-accent-vivid' },
+  { icon: Linkedin, label: 'LinkedIn', href: socials.linkedin, text: 'LinkedIn Profile', color: 'bg-text dark:bg-dark-text' },
 ];
 
 export function Contact() {

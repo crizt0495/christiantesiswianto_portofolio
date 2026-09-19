@@ -6,15 +6,11 @@ import { SectionHeading } from './SectionHeading';
 const cardColors = [
   'border-t-accent',
   'border-t-accent-vivid',
-  'border-t-accent-green',
-  'border-t-accent-pink',
 ];
 
 const numberStyles = [
-  'bg-accent',
-  'bg-accent-vivid',
-  'bg-accent-green',
-  'bg-accent-pink',
+  'bg-accent text-white',
+  'bg-accent-vivid text-text dark:text-dark-text',
 ];
 
 export function Philosophy() {
@@ -34,7 +30,7 @@ export function Philosophy() {
               className={`nb-card p-6 ${cardColors[index % cardColors.length]} group`}
             >
               <div
-                className={`w-11 h-11 rounded-lg ${numberStyles[index % numberStyles.length]} flex items-center justify-center text-white font-bold text-lg shadow-[3px_3px_0_var(--color-shadow)] group-hover:shadow-[4px_4px_0_var(--color-shadow)] transition-all`}
+                className={`w-11 h-11 rounded-lg ${numberStyles[index % numberStyles.length]} flex items-center justify-center font-bold text-lg shadow-[3px_3px_0_var(--color-shadow)] group-hover:shadow-[4px_4px_0_var(--color-shadow)] transition-all`}
               >
                 {item.number}
               </div>

@@ -24,12 +24,12 @@ export const metadata: Metadata = {
     default: `${personal.name} | ${personal.title}`,
     template: `%s | ${personal.name}`,
   },
-  description: `${personal.name} — ${personal.title} specializing in Golang, Next.js, PostgreSQL, and MySQL. Building reliable and modern digital solutions.`,
+  description: `${personal.name} — ${personal.title} specializing in Next.js, TypeScript, PostgreSQL, and MySQL. Building reliable and modern digital solutions.`,
   keywords: [
     personal.name,
     'Full-Stack Developer',
-    'Golang Developer',
     'Next.js Developer',
+    'Node.js Developer',
     'React Developer',
     'TypeScript',
     'PostgreSQL',
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     title: `${personal.name} | ${personal.title}`,
-    description: `${personal.name} — ${personal.title} specializing in Golang, Next.js, PostgreSQL, and MySQL. Building reliable and modern digital solutions.`,
+    description: `${personal.name} — ${personal.title} specializing in Next.js, TypeScript, PostgreSQL, and MySQL. Building reliable and modern digital solutions.`,
     siteName: personal.name,
   },
   twitter: {
     card: 'summary_large_image',
     title: `${personal.name} | ${personal.title}`,
-    description: `${personal.name} — ${personal.title} specializing in Golang, Next.js, PostgreSQL, and MySQL.`,
+    description: `${personal.name} — ${personal.title} specializing in Next.js, TypeScript, PostgreSQL, and MySQL.`,
     creator: '@christiantesiswianto',
   },
   robots: {
@@ -82,7 +82,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       addressLocality: personal.location,
     },
     knowsAbout: [
-      'Golang',
       'Next.js',
       'React',
       'TypeScript',

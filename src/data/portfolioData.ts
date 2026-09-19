@@ -68,9 +68,9 @@ export interface Philosophy {
 export const personal: Personal = {
   name: 'Christian Tesiswianto',
   title: 'Full-Stack Developer',
-  tagline: 'Building Reliable Digital Solutions with Go & Modern Web Technologies.',
+  tagline: 'Building Reliable Digital Solutions with Next.js & Modern Web Technologies.',
   description:
-    'Software developer focused on building practical, reliable, and scalable digital solutions. I work primarily with Golang for backend development and Next.js for modern web applications, supported by strong database experience with PostgreSQL and MySQL.',
+    'Software developer focused on building practical, reliable, and scalable digital solutions. I build modern full-stack web applications with Next.js and TypeScript, supported by strong database experience with PostgreSQL and MySQL.',
   email: 'christwnto@gmail.com',
   location: 'Indonesia',
   availability: 'Open to opportunities',
@@ -83,7 +83,7 @@ export const socials: Social = {
 
 export const technologies: Technology[] = [
   {
-    name: 'Golang',
+    name: 'Node.js',
     category: 'backend',
     description: 'Building fast, reliable, and maintainable backend services and REST APIs.',
   },
@@ -120,7 +120,7 @@ export const technologies: Technology[] = [
 ];
 
 export const skills: Skill[] = [
-  { name: 'Golang', category: 'backend', level: 'primary' },
+  { name: 'Node.js', category: 'backend', level: 'primary' },
   { name: 'REST API', category: 'backend', level: 'primary' },
   { name: 'Authentication', category: 'backend', level: 'strong' },
   { name: 'Authorization', category: 'backend', level: 'strong' },
@@ -240,13 +240,13 @@ export const experiences: Experience[] = [
     period: 'Present',
     current: true,
     responsibilities: [
-      'Building scalable backend systems with Golang',
+      'Building scalable full-stack applications with Next.js',
       'Developing modern web applications with Next.js',
       'Designing and implementing database architectures',
       'Creating RESTful APIs and integration services',
       'Focusing on code quality and system reliability',
     ],
-    technologies: ['Golang', 'Next.js', 'PostgreSQL', 'MySQL', 'TypeScript'],
+    technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'MySQL', 'TypeScript'],
   },
 ];
 
@@ -258,7 +258,7 @@ export const services: Service[] = [
   },
   {
     title: 'Backend API',
-    description: 'Fast and maintainable backend systems using Golang.',
+    description: 'Fast and maintainable backend systems using Node.js.',
     icon: 'Server',
   },
   {

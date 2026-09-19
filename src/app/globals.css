@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #F5F5F0;
+  --color-bg: #F7F4EC;
   --color-bg-card: #FFFFFF;
-  --color-bg-alt: #EEEEE8;
-  --color-border: #1A1A1A;
-  --color-text: #1A1A1A;
-  --color-text-secondary: #555555;
-  --color-text-muted: #888888;
-  --color-accent: #2563EB;
-  --color-accent-hover: #1D4ED8;
-  --color-accent-vivid: #FF6B35;
-  --color-accent-green: #22C55E;
-  --color-accent-yellow: #FACC15;
-  --color-accent-pink: #EC4899;
-  --color-shadow: #1A1A1A;
-  --color-success: #22C55E;
+  --color-bg-alt: #EFEBDF;
+  --color-border: #16201B;
+  --color-text: #17211C;
+  --color-text-secondary: #4E5A53;
+  --color-text-muted: #8B948D;
+  --color-accent: #0F6B52;
+  --color-accent-hover: #0A5742;
+  --color-accent-vivid: #C9A227;
+  --color-accent-green: #16A34A;
+  --color-accent-yellow: #D9A621;
+  --color-accent-pink: #B04A8B;
+  --color-shadow: #16201B;
+  --color-success: #16A34A;
   --color-error: #EF4444;
 
-  --color-dark-bg: #0A0A0A;
-  --color-dark-bg-card: #1A1A1A;
-  --color-dark-bg-alt: #222222;
-  --color-dark-border: #E0E0E0;
-  --color-dark-text: #F5F5F5;
-  --color-dark-text-secondary: #AAAAAA;
-  --color-dark-text-muted: #777777;
-  --color-dark-shadow: #E0E0E0;
+  --color-dark-bg: #0B120F;
+  --color-dark-bg-card: #141D19;
+  --color-dark-bg-alt: #1B2622;
+  --color-dark-border: #E8E3D4;
+  --color-dark-text: #F3F0E7;
+  --color-dark-text-secondary: #A9B4AC;
+  --color-dark-text-muted: #7C877F;
+  --color-dark-shadow: #E8E3D4;
 
   --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
@@ -55,22 +55,27 @@ body {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
+  background-image:
+    radial-gradient(1100px 700px at 85% -10%, rgba(201, 162, 39, 0.07), transparent 60%),
+    radial-gradient(900px 700px at -10% 15%, rgba(15, 107, 82, 0.05), transparent 60%);
 }
 
 .dark body,
 body.dark-mode {
   background-color: var(--color-dark-bg);
   color: var(--color-dark-text);
+  background-image:
+    radial-gradient(1100px 700px at 85% -10%, rgba(201, 162, 39, 0.05), transparent 60%);
 }
 
 ::selection {
-  background-color: var(--color-accent);
-  color: white;
+  background-color: var(--color-accent-vivid);
+  color: var(--color-text);
 }
 
 .dark ::selection {
-  background-color: var(--color-accent);
-  color: white;
+  background-color: var(--color-accent-vivid);
+  color: var(--color-dark-bg);
 }
 
 ::-webkit-scrollbar {
@@ -86,12 +91,12 @@ body.dark-mode {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: var(--color-accent);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+  background: var(--color-accent-hover);
 }
 
 /* Thin scrollbar utility */
