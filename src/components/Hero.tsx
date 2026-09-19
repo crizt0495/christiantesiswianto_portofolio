@@ -79,7 +79,7 @@ export function Hero() {
               {stats.map((stat) => (
                 <div key={stat.label} className="nb-card-flat p-3 text-center">
                   <div className="text-lg font-bold text-text dark:text-dark-text">{stat.value}</div>
-                  <div className="text-[10px] font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted">
+                  <div className="text-[10px] font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted break-words leading-tight">
                     {stat.label}
                   </div>
                 </div>

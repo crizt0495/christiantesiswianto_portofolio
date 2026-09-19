@@ -47,25 +47,25 @@ export function About() {
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-2xl font-bold text-accent dark:text-accent">{stat.value}</div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted mt-1">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted mt-1 break-words leading-tight">
                     {stat.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {highlights.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <div
+<div
                     key={item.label}
-                    className="flex items-center gap-3 text-sm font-semibold text-text dark:text-dark-text p-3 rounded-lg border-3 border-border/30 dark:border-dark-border/30 bg-bg-alt/40 dark:bg-dark-bg-alt/40 hover:border-accent hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
+                    className="flex items-center gap-3 text-sm font-semibold text-text dark:text-dark-text p-3 rounded-lg border-3 border-border/30 dark:border-dark-border/30 bg-bg-alt/40 dark:bg-dark-bg-alt/40 hover:border-accent hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors min-w-0"
                   >
                     <div className={`w-9 h-9 rounded-lg ${item.color} flex items-center justify-center shrink-0 shadow-[3px_3px_0_var(--color-shadow)]`}>
                       <Icon className={`w-4 h-4 ${item.iconColor}`} />
                     </div>
-                    <span className="leading-snug">{item.label}</span>
+                    <span className="min-w-0 leading-snug">{item.label}</span>
                   </div>
                 );
               })}
