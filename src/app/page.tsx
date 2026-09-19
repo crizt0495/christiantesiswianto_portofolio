@@ -1,13 +1,7 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
-import { TechnologyCard } from '@/components/TechnologyCard';
-import { SkillCard } from '@/components/SkillCard';
-import { Projects } from '@/components/Projects';
-import { ExperienceTimeline } from '@/components/ExperienceTimeline';
-import { Philosophy } from '@/components/Philosophy';
-import { ServiceCard } from '@/components/ServiceCard';
-import { Contact } from '@/components/Contact';
+import { BelowFold } from '@/components/BelowFold';
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
@@ -16,13 +10,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <TechnologyCard />
-      <SkillCard />
-      <Projects />
-      <ExperienceTimeline />
-      <Philosophy />
-      <ServiceCard />
-      <Contact />
+      <BelowFold />
       <Footer />
     </main>
   );

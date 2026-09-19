@@ -31,7 +31,7 @@ export function Hero() {
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
           <div>
             <Badge variant="green" className="mb-6 text-sm">
-              <span className="w-2 h-2 rounded-full bg-white mr-2 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-white mr-2" />
               {personal.availability}
             </Badge>
 

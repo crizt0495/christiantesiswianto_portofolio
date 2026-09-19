@@ -243,3 +243,59 @@ body.dark-mode {
     box-shadow: 6px 6px 0 var(--color-dark-shadow);
   }
 }
+
+.bg-emerald-blob {
+  background: radial-gradient(closest-side, rgba(15, 107, 82, 0.10), rgba(15, 107, 82, 0.03) 55%, transparent 75%);
+}
+
+.dark .bg-emerald-blob {
+  background: radial-gradient(closest-side, rgba(15, 107, 82, 0.16), rgba(15, 107, 82, 0.05) 55%, transparent 78%);
+}
+
+.bg-gold-blob {
+  background: radial-gradient(closest-side, rgba(201, 162, 39, 0.08), rgba(201, 162, 39, 0.02) 60%, transparent 78%);
+}
+
+.dark .bg-gold-blob {
+  background: radial-gradient(closest-side, rgba(201, 162, 39, 0.13), rgba(201, 162, 39, 0.04) 60%, transparent 80%);
+}
+
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-text) 8%, transparent) 2px, transparent 2px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-text) 8%, transparent) 2px, transparent 2px);
+  background-size: 60px 60px;
+}
+
+.dark .bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-dark-text) 6%, transparent) 2px, transparent 2px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-dark-text) 6%, transparent) 2px, transparent 2px);
+  background-size: 60px 60px;
+}
+
+@keyframes blobDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(3%, 2%, 0);
+  }
+}
+
+.animate-blob {
+  animation: none;
+  will-change: transform;
+}
+
+.animate-blob-slow {
+  animation: none;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-blob-slow {
+    animation: none;
+  }
+}
