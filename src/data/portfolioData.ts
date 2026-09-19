@@ -176,37 +176,6 @@ export const projects: Project[] = [
     image: '/projects/kasir.png',
   },
   {
-    id: 'simarc',
-    name: 'SIMARC',
-    shortDescription: 'Sistem Informasi Manajemen Arsip Record Center — a comprehensive archive management system with blockchain-based audit trail.',
-    overview:
-      'A web-based archive management information system for institutional record centers, supporting file transfers, destruction scheduling, lending tracking, and tamper-proof audit logs via blockchain integration.',
-    problem:
-      'Government and institutional record centers manage large volumes of physical and digital archives with manual, error-prone processes that lack transparency, accountability, and long-term retention control.',
-    solution:
-      'Developed a full-featured archive management system with automated destruction schedules, lending workflows, PDF report generation, and a blockchain-based audit trail to ensure tamper-proof accountability.',
-    keyFeatures: [
-      'Full archive lifecycle management (CRUD, filing, transfer, destruction)',
-      'Archive lending with tracking and return workflows',
-      'Blockchain-based audit trail for tamper-proof change records',
-      'Automated destruction scheduling based on retention periods',
-      'QR code generation for physical archive identification',
-      'PDF report generation (Berita Acara) for official documentation',
-      'Excel export for reporting',
-      'Database backup with optional Google Drive OAuth integration',
-      'Dynamic database switching from the web UI',
-      'Recovery mode with graceful degradation',
-      'PWA support for mobile access',
-    ],
-    challenges:
-      'Building a Go application that handles file uploads, OCR, PDF generation, and blockchain integration while remaining deployable on serverless platforms like Vercel with embedded templates and static assets.',
-    results:
-      'Delivered a production system used by Bakesbangpol Kota Probolinggo, replacing manual archive processes with a reliable, auditable, and scalable digital solution.',
-    technologies: ['Go', 'Gin', 'GORM', 'MySQL', 'HTML Templates', 'Tailwind CSS', 'PWA'],
-    featured: true,
-    image: '/projects/simarc.jpg',
-  },
-  {
     id: 'klinik-sehat',
     name: 'SIM Klinik',
     shortDescription: 'Sistem Informasi Manajemen Klinik — one unified system for the entire clinic: patients, schedules, medical records, pharmacy, and finance.',
