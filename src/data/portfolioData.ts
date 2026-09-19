@@ -233,7 +233,7 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'REST API'],
     liveDemo: 'https://klinik-rho.vercel.app/',
     featured: true,
-    image: '',
+    image: '/projects/klinik.png',
   },
   {
     id: 'rms-resto',
@@ -259,7 +259,7 @@ export const projects: Project[] = [
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'REST API'],
     liveDemo: 'https://restaurant-ten-lemon.vercel.app/',
     featured: true,
-    image: '',
+    image: '/projects/rms.png',
   },
 ];
 
