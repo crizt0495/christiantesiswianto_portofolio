@@ -1,4 +1,4 @@
-import { Github, Linkedin } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { personal, navLinks, socials } from '@/data/portfolioData';
 
 export function Footer() {
@@ -30,15 +30,6 @@ export function Footer() {
 
         <div className="flex flex-col items-center md:items-end gap-4">
           <div className="flex items-center gap-3">
-            <a
-              href={socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card flex items-center justify-center text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt transition-colors"
-              aria-label="GitHub Profile"
-            >
-              <Github className="w-4 h-4" />
-            </a>
             <a
               href={socials.linkedin}
               target="_blank"

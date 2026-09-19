@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { X, ExternalLink, Github, CheckCircle, ArrowUpRight, Maximize2 } from 'lucide-react';
+import { X, ExternalLink, CheckCircle, ArrowUpRight, Maximize2 } from 'lucide-react';
 import { Project } from '@/data/portfolioData';
 import { Badge } from './Badge';
 import { Button } from './Button';
@@ -77,17 +77,6 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
           >
             View Details
           </Button>
-          {project.github && (
-            <Button
-              variant="ghost"
-              size="sm"
-              href={project.github}
-              external
-              icon={<Github className="w-3.5 h-3.5" />}
-            >
-              GitHub
-            </Button>
-          )}
           {project.liveDemo && (
             <Button
               variant="accent"
@@ -211,17 +200,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           <div className="flex flex-wrap items-center gap-3 pt-6 mt-6 border-t-3 border-border dark:border-dark-border">
-            {project.github && (
-              <Button
-                variant="secondary"
-                size="md"
-                href={project.github}
-                external
-                icon={<Github className="w-4 h-4" />}
-              >
-                View on GitHub
-              </Button>
-            )}
             {project.liveDemo && (
               <Button
                 variant="accent"

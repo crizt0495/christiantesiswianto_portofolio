@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Menu, X } from 'lucide-react';
+import { Linkedin, Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { cn, scrollToSection } from '@/lib/utils';
 import { navLinks, socials } from '@/data/portfolioData';
@@ -76,22 +76,6 @@ export function Navbar() {
 
             <div className="hidden md:flex items-center gap-2">
               <a
-                href={socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  'w-9 h-9 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card',
-                  'flex items-center justify-center',
-                  'text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt',
-                  'shadow-[3px_3px_0_var(--color-shadow)] dark:shadow-[3px_3px_0_var(--color-dark-shadow)]',
-                  'active:translate-x-[2px] active:translate-y-[2px] active:shadow-none',
-                  'transition-all duration-100'
-                )}
-                aria-label="GitHub Profile"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-              <a
                 href={socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -151,22 +135,6 @@ export function Navbar() {
             </a>
           ))}
           <div className="flex items-center gap-3 mt-6">
-            <a
-              href={socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                'w-12 h-12 rounded-lg border-3 border-border dark:border-dark-border bg-white dark:bg-dark-bg-card',
-                'flex items-center justify-center',
-                'text-text dark:text-dark-text hover:bg-bg-alt dark:hover:bg-dark-bg-alt',
-                'shadow-[3px_3px_0_var(--color-shadow)] dark:shadow-[3px_3px_0_var(--color-dark-shadow)]',
-                'active:translate-x-[3px] active:translate-y-[3px] active:shadow-none',
-                'transition-all duration-100'
-              )}
-              aria-label="GitHub Profile"
-            >
-              <Github className="w-5 h-5" />
-            </a>
             <a
               href={socials.linkedin}
               target="_blank"

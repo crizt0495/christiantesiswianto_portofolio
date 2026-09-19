@@ -9,7 +9,6 @@ export interface Personal {
 }
 
 export interface Social {
-  github: string;
   linkedin: string;
   whatsapp?: string;
 }
@@ -38,7 +37,6 @@ export interface Project {
   challenges: string;
   results: string;
   technologies: string[];
-  github?: string;
   liveDemo?: string;
   caseStudy?: string;
   image: string;
@@ -79,7 +77,6 @@ export const personal: Personal = {
 };
 
 export const socials: Social = {
-  github: 'https://github.com/crizt0495',
   linkedin: 'https://www.linkedin.com/in/christian-tesiswianto-453444171',
   whatsapp: 'https://wa.me/6281335884670',
 };
@@ -120,11 +117,6 @@ export const technologies: Technology[] = [
     category: 'tools',
     description: 'Version control and collaborative development.',
   },
-  {
-    name: 'GitHub',
-    category: 'tools',
-    description: 'Code hosting and open source collaboration.',
-  },
 ];
 
 export const skills: Skill[] = [
@@ -145,7 +137,6 @@ export const skills: Skill[] = [
   { name: 'Query Optimization', category: 'database', level: 'strong' },
   { name: 'Relational Database', category: 'database', level: 'primary' },
   { name: 'Git', category: 'development', level: 'primary' },
-  { name: 'GitHub', category: 'development', level: 'primary' },
   { name: 'Docker', category: 'development', level: 'working' },
   { name: 'API Integration', category: 'development', level: 'strong' },
   { name: 'System Architecture', category: 'development', level: 'strong' },
@@ -180,7 +171,7 @@ export const projects: Project[] = [
     results:
       'Delivered a production-ready POS system that handles concurrent transactions safely, provides real-time business insights, and can be installed as a native-like app on mobile devices.',
     technologies: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'Supabase PostgreSQL', 'Zustand', 'Zod', 'Recharts'],
-    github: 'https://github.com/crizt0495/kasir_pos',
+    liveDemo: 'https://pos-app-alpha.vercel.app/',
     featured: true,
     image: '/projects/kasir.png',
   },
@@ -212,9 +203,63 @@ export const projects: Project[] = [
     results:
       'Delivered a production system used by Bakesbangpol Kota Probolinggo, replacing manual archive processes with a reliable, auditable, and scalable digital solution.',
     technologies: ['Go', 'Gin', 'GORM', 'MySQL', 'HTML Templates', 'Tailwind CSS', 'PWA'],
-    github: 'https://github.com/crizt0495/simarc-go',
     featured: true,
     image: '/projects/simarc.jpg',
+  },
+  {
+    id: 'klinik-sehat',
+    name: 'SIM Klinik',
+    shortDescription: 'Sistem Informasi Manajemen Klinik — one unified system for the entire clinic: patients, schedules, medical records, pharmacy, and finance.',
+    overview:
+      'A web-based clinic information management system that unifies patient registration, queue management, medical records, pharmacy, and financial billing into a single, calm, and fast interface with role-based access.',
+    problem:
+      'Clinics often rely on separate, disconnected tools for patient data, appointments, pharmacy, and finance, causing fragmented records, slower service, and weak accountability.',
+    solution:
+      'Built an integrated clinic management platform with a unified clinical workflow, role-based access control, and audit trails for every action across admin, doctor, nurse, pharmacist, cashier, and laboratory roles.',
+    keyFeatures: [
+      'Integrated clinical workflow: registration, queue, medical records, pharmacy, to billing',
+      'Role-based access control (admin, doctor, nurse, pharmacist, cashier, laboratory)',
+      'Patient registration and appointment scheduling',
+      'Electronic medical records (Rekam Medis) management',
+      'Pharmacy and medication management',
+      'Billing and financial transactions',
+      'Audit trail for every action',
+      'Clean, calm, and responsive interface',
+    ],
+    challenges:
+      'Designing a unified system that serves multiple clinical roles without friction, while keeping patient data secure and ensuring every action remains auditable and traceable.',
+    results:
+      'Delivered a production-ready clinic management system that replaces disconnected manual processes with a fast, integrated workflow for the entire clinic.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'REST API'],
+    liveDemo: 'https://klinik-rho.vercel.app/',
+    featured: true,
+    image: '',
+  },
+  {
+    id: 'rms-resto',
+    name: 'RMS RestoManager',
+    shortDescription: 'Restaurant management system (Sistem Manajemen Restoran) for managing menus, orders, and daily operations — with live demo access.',
+    overview:
+      'A web-based restaurant management system (RMS v2) that centralizes menu management, order handling, and table-based operations into a single dashboard for restaurant staff.',
+    problem:
+      'Restaurants struggle to coordinate menus, orders, and table service, often relying on paper notes or fragmented tools that slow down staff and lead to errors.',
+    solution:
+      'Developed a restaurant management platform that centralizes menu, order, and table operations, giving staff a single, fast dashboard to run daily operations.',
+    keyFeatures: [
+      'Menu and menu category management',
+      'Order management with table tracking',
+      'Restaurant operations dashboard',
+      'Secure staff login with role-based access',
+      'Live demo access with admin credentials',
+    ],
+    challenges:
+      'Building a system that keeps menus, orders, and table operations synchronized so staff can serve customers quickly without confusion or duplicated effort.',
+    results:
+      'Delivered a restaurant management system with an interactive live demo, letting owners explore the full workflow with a simple admin login.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'REST API'],
+    liveDemo: 'https://restaurant-ten-lemon.vercel.app/',
+    featured: true,
+    image: '',
   },
 ];
 
