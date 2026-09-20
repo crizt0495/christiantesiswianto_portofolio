@@ -1,6 +1,6 @@
 'use client';
 
-import { MessageSquare, Play, Code2, Database, Boxes } from 'lucide-react';
+import { MessageSquare, Play, Code2, Database, Boxes, Download } from 'lucide-react';
 import { personal } from '@/data/portfolioData';
 import { AnimatedBackground } from './AnimatedBackground';
 import { Badge } from './Badge';
@@ -61,6 +61,15 @@ export function Hero() {
                 onClick={() => handleScroll('#contact')}
               >
                 Let&apos;s Work Together
+              </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                href="/CV_Christian_Tesiswianto.pdf"
+                download
+                icon={<Download className="w-4 h-4" />}
+              >
+                Download CV
               </Button>
             </div>
 

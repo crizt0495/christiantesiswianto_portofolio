@@ -8,6 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   external?: boolean;
+  download?: boolean;
   icon?: React.ReactNode;
 }
 
@@ -17,6 +18,7 @@ export function Button({
   size = 'md',
   href,
   external,
+  download,
   icon,
   className,
   ...props
@@ -46,6 +48,7 @@ export function Button({
         href={href}
         target={external ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
+        download={download || undefined}
         className={baseStyles}
       >
         {icon}

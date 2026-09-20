@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Linkedin, MessageSquare, Send } from 'lucide-react';
+import { Mail, Linkedin, MessageSquare, Send, FileText } from 'lucide-react';
 import { personal, socials } from '@/data/portfolioData';
 import { SectionHeading } from './SectionHeading';
 import { Button } from './Button';
@@ -113,6 +113,22 @@ export function Contact() {
                 </div>
               </a>
             )}
+
+            <a
+              href="/CV_Christian_Tesiswianto.pdf"
+              download
+              className="nb-card-flat flex items-center gap-3 p-4 group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-accent-vivid flex items-center justify-center text-white shrink-0">
+                <FileText className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-text dark:text-dark-text">Download CV</div>
+                <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
+                  PDF — one-page resume
+                </div>
+              </div>
+            </a>
           </div>
 
           <div className="nb-card p-6">
