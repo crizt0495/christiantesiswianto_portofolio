@@ -1,6 +1,6 @@
 'use client';
 
-import { MessageSquare, Play, Code2, Database, Boxes, Download } from 'lucide-react';
+import { MessageSquare, Play, Code2, Database, Boxes, Download, FileText } from 'lucide-react';
 import { personal } from '@/data/portfolioData';
 import { AnimatedBackground } from './AnimatedBackground';
 import { Badge } from './Badge';
@@ -45,7 +45,7 @@ export function Hero() {
               {personal.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-10">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 mb-10">
               <Button
                 variant="primary"
                 size="lg"
@@ -70,6 +70,15 @@ export function Hero() {
                 icon={<Download className="w-4 h-4" />}
               >
                 Download CV
+              </Button>
+              <Button
+                variant="ghost"
+                size="lg"
+                href="/CV_Christian_Tesiswianto.docx"
+                download
+                icon={<FileText className="w-4 h-4" />}
+              >
+                Download DOCX
               </Button>
             </div>
 

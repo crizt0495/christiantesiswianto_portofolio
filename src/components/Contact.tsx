@@ -129,6 +129,22 @@ export function Contact() {
                 </div>
               </div>
             </a>
+
+            <a
+              href="/CV_Christian_Tesiswianto.docx"
+              download
+              className="nb-card-flat flex items-center gap-3 p-4 group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-text dark:bg-dark-text flex items-center justify-center text-white shrink-0">
+                <FileText className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-text dark:text-dark-text">Download CV</div>
+                <div className="text-xs text-text-secondary dark:text-dark-text-secondary">
+                  DOCX — editable Word version
+                </div>
+              </div>
+            </a>
           </div>
 
           <div className="nb-card p-6">

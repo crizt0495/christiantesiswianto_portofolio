@@ -121,6 +121,7 @@ export const technologies: Technology[] = [
 
 export const skills: Skill[] = [
   { name: 'Node.js', category: 'backend', level: 'primary' },
+  { name: 'Golang', category: 'backend', level: 'primary' },
   { name: 'REST API', category: 'backend', level: 'primary' },
   { name: 'Authentication', category: 'backend', level: 'strong' },
   { name: 'Authorization', category: 'backend', level: 'strong' },
